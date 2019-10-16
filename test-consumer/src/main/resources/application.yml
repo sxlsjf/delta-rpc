@@ -1,0 +1,9 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /rpc
+
+spring:
+  derta:
+    zk-address-discover: 127.0.0.1:2181
+
