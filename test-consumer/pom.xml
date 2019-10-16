@@ -27,7 +27,7 @@
         </dependency>
         <dependency>
             <groupId>org.sxl</groupId>
-            <artifactId>dertaRpc-consumer</artifactId>
+            <artifactId>derta-rpc-consumer</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

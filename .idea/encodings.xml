@@ -2,11 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/DertaRpc-common" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dertaRpc-consumer" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dertaRpc-provider" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rpc-consumer" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rpc-provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/derta-rpc-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/derta-rpc-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/derta-rpc-provider" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sample-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/test-consumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/test-provider" charset="UTF-8" />

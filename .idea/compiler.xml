@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dertaRpc-common" />
-        <module name="dertaRpc-consumer" />
-        <module name="dertaRpc-provider" />
+        <module name="derta-rpc-common" />
+        <module name="derta-rpc-consumer" />
+        <module name="derta-rpc-provider" />
         <module name="sample-api" />
         <module name="test-consumer" />
         <module name="test-provider" />
@@ -17,8 +17,8 @@
     <bytecodeTargetLevel>
       <module name="rpc-consumer" target="1.8" />
       <module name="rpc-provider" target="1.8" />
-      <module name="sample-client" target="1.5" />
-      <module name="sample-provider" target="1.5" />
+      <module name="sample-client" target="1.8" />
+      <module name="sample-provider" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
