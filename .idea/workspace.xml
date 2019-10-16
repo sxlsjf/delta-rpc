@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="391107dc-0972-4f49-8c4a-0340f37aa8dc" name="Default Changelist" comment="增加日志" />
+    <list default="true" id="391107dc-0972-4f49-8c4a-0340f37aa8dc" name="Default Changelist" comment="增加日志">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/derta-spring-boot-stater-autoconfiguration/target/" />
@@ -63,7 +65,7 @@
           <entry key="factories" value="19" />
           <entry key="java" value="412" />
           <entry key="properties" value="2" />
-          <entry key="xml" value="57" />
+          <entry key="xml" value="58" />
           <entry key="yml" value="13" />
         </counts>
       </usages-collector>
@@ -73,7 +75,7 @@
           <entry key="JAVA" value="412" />
           <entry key="Properties" value="2" />
           <entry key="UML" value="2" />
-          <entry key="XML" value="57" />
+          <entry key="XML" value="58" />
           <entry key="YAML" value="13" />
           <entry key="spring.factories" value="19" />
         </counts>
@@ -81,7 +83,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="71" />
-          <entry key="factories" value="6" />
+          <entry key="factories" value="9" />
           <entry key="java" value="3227" />
           <entry key="txt" value="12" />
           <entry key="xml" value="189" />
@@ -94,25 +96,13 @@
           <entry key="PLAIN_TEXT" value="83" />
           <entry key="XML" value="189" />
           <entry key="YAML" value="266" />
-          <entry key="spring.factories" value="6" />
+          <entry key="spring.factories" value="9" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dertaRpc-provider/src/main/java/org/sxl/rpc/DertaProviderAutoConfiguration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dertaRpc-consumer/src/main/java/com/sxl/rpc/client/RpcClientProxyFactory.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -173,13 +163,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dertaRpc-consumer/src/main/resources/META-INF/spring.factories">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="63">
               <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -259,7 +254,6 @@
         <option value="$PROJECT_DIR$/dertaRpc-provider/src/main/java/org/sxl/rpc/listener/RpcListener.java" />
         <option value="$PROJECT_DIR$/dertaRpc-provider/src/main/resources/META-INF/spring.factories" />
         <option value="$PROJECT_DIR$/test-consumer/pom.xml" />
-        <option value="$PROJECT_DIR$/dertaRpc-consumer/src/main/resources/META-INF/spring.factories" />
         <option value="$PROJECT_DIR$/dertaRpc-provider/src/main/java/org/sxl/rpc/ann/RpcService.java" />
         <option value="$PROJECT_DIR$/dertaRpc-consumer/src/main/java/com/sxl/rpc/client/RpcClientHandler.java" />
         <option value="$PROJECT_DIR$/dertaRpc-provider/src/main/java/org/sxl/rpc/server/RpcServerHandler.java" />
@@ -290,6 +284,7 @@
         <option value="$PROJECT_DIR$/DertaRpc-common/src/main/java/com/sxl/common/core/util/CollectionUtil.java" />
         <option value="$PROJECT_DIR$/DertaRpc-common/src/main/java/com/sxl/common/core/coder/RpcEncoder.java" />
         <option value="$PROJECT_DIR$/dertaRpc-consumer/src/main/java/com/sxl/rpc/DertaConsumerAutoConfiguration.java" />
+        <option value="$PROJECT_DIR$/dertaRpc-consumer/src/main/resources/META-INF/spring.factories" />
       </list>
     </option>
   </component>
@@ -368,6 +363,11 @@
             <path>
               <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
               <item name="derta-spring-boot-stater" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
+              <item name="derta-spring-boot-stater" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
@@ -778,6 +778,116 @@
       <recent name="D:\IdeaProjects\Spring-boot-Learn-Projects\derta-spring-boot-stater\rpc-common\src\main\java\com\sxl\common\core\bean" />
     </key>
   </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/README.md</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -834,7 +944,7 @@
       <workItem from="1570844391210" duration="3725000" />
       <workItem from="1570865287882" duration="10268000" />
       <workItem from="1571019773315" duration="640000" />
-      <workItem from="1571210751568" duration="738000" />
+      <workItem from="1571210751568" duration="1302000" />
     </task>
     <task id="LOCAL-00001" summary="删除无用">
       <created>1570791208818</created>
@@ -868,7 +978,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134918000" />
+    <option name="totallyTimeSpent" value="135482000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -881,9 +991,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2600536" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2600536" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -902,7 +1011,7 @@
       <window_info anchor="bottom" id="MyBatis Sql Log" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="JProfiler" order="11" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49932975" visible="true" weight="0.33039647" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49932975" weight="0.33039647" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50067025" side_tool="true" weight="0.18061674" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="14" sideWeight="0.49932975" weight="0.32991204" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
@@ -1050,13 +1159,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.10.RELEASE/spring-webmvc-5.1.10.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="570" selection-start-line="570" selection-end-line="570" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/JAVA EE/jdk1.8.0_191/src.zip!/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -1423,6 +1525,9 @@
           <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
