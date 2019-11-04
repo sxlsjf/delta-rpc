@@ -12,6 +12,8 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Optional;
+
 /**
  * @Author: shenxl
  * @Date: 2019/9/29 13:51
@@ -54,9 +56,11 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse>{
         try {
             // 创建并初始化 Netty 客户端 Bootstrap 对象
             Bootstrap bootstrap = new Bootstrap();
-            bootstrap.group(group);
-            bootstrap.channel(NioSocketChannel.class);
-            bootstrap.handler(new ChannelInitializer<SocketChannel>() {
+            bootstrap.group(group)
+            .channel(NioSocketChannel.class)
+            .option(ChannelOption.TCP_NODELAY, true)
+            .option(ChannelOption.SO_KEEPALIVE,true)
+            .handler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel channel)  {
                     ChannelPipeline pipeline = channel.pipeline();
@@ -65,7 +69,7 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse>{
                     pipeline.addLast(RpcClient.this); // 处理 RPC 响应
                 }
             });
-            bootstrap.option(ChannelOption.TCP_NODELAY, true);
+
 
             String[] array = StringUtil.split(serviceAddress, ":");
             String host = array[0];

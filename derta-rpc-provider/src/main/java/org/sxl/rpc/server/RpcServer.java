@@ -59,9 +59,11 @@ public class RpcServer implements InitializingBean {
         try {
             // 创建并初始化 Netty 服务端 Bootstrap 对象
             ServerBootstrap bootstrap = new ServerBootstrap();
-            bootstrap.group(bossGroup, workerGroup);
-            bootstrap.channel(NioServerSocketChannel.class);
-            bootstrap.childHandler(new ChannelInitializer<SocketChannel>() {
+            bootstrap.group(bossGroup, workerGroup)
+            .channel(NioServerSocketChannel.class)
+            .option(ChannelOption.SO_BACKLOG, 1024)
+            .childOption(ChannelOption.SO_KEEPALIVE, true)
+            .childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel channel) throws Exception {
                     ChannelPipeline pipeline = channel.pipeline();
@@ -70,8 +72,8 @@ public class RpcServer implements InitializingBean {
                     pipeline.addLast(new RpcServerHandler(localHandlerMap)); // 处理 RPC 请求
                 }
             });
-            bootstrap.option(ChannelOption.SO_BACKLOG, 1024);
-            bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true);
+
+
 
             //String ip = InetAddress.getLocalHost().getHostAddress();
             String ip = "127.0.0.1";
