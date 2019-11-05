@@ -16,7 +16,6 @@ public class MyServiceImpl implements Myservice {
     @Override
     public String sayHello(String say) {
 
-
         System.out.println("hello"+say+"========================================================================================");
 
         return "rpc调用成功";

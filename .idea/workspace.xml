@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="391107dc-0972-4f49-8c4a-0340f37aa8dc" name="Default Changelist" comment="修改名称">
+    <list default="true" id="391107dc-0972-4f49-8c4a-0340f37aa8dc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/derta-rpc-common/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-consumer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-consumer/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/client/RpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/client/RpcClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/client/RpcClientProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/client/RpcClientProxyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/post/ParseReferencePostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/post/ParseReferencePostProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/DertaProviderAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/DertaProviderAutoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/ann/RpcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/ann/RpcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/container/LocalHandlerMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/container/LocalHandlerMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/post/ParseRpcServiceAnn.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/post/ParseRpcServiceAnn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-consumer/src/main/java/com/sxl/sample/test/consumer/controller/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/test-consumer/src/main/java/com/sxl/sample/test/consumer/controller/MyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-provider/src/main/java/com/sxl/sample/test/provider/service/MyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/test-provider/src/main/java/com/sxl/sample/test/provider/service/MyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-provider/target/classes/com/sxl/sample/test/provider/service/MyServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/test-provider/target/classes/com/sxl/sample/test/provider/service/MyServiceImpl.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -81,9 +70,9 @@
           <entry key="0-SNAPSHOT" value="2" />
           <entry key="class" value="37" />
           <entry key="factories" value="21" />
-          <entry key="java" value="534" />
+          <entry key="java" value="537" />
           <entry key="md" value="1" />
-          <entry key="properties" value="2" />
+          <entry key="properties" value="3" />
           <entry key="xml" value="79" />
           <entry key="yml" value="19" />
         </counts>
@@ -91,9 +80,9 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="37" />
-          <entry key="JAVA" value="534" />
+          <entry key="JAVA" value="537" />
           <entry key="Markdown" value="1" />
-          <entry key="Properties" value="2" />
+          <entry key="Properties" value="3" />
           <entry key="UML" value="2" />
           <entry key="XML" value="79" />
           <entry key="YAML" value="19" />
@@ -105,7 +94,7 @@
           <entry key="dummy" value="72" />
           <entry key="factories" value="9" />
           <entry key="java" value="3474" />
-          <entry key="txt" value="26" />
+          <entry key="txt" value="34" />
           <entry key="xml" value="227" />
           <entry key="yml" value="266" />
         </counts>
@@ -113,7 +102,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="3474" />
-          <entry key="PLAIN_TEXT" value="98" />
+          <entry key="PLAIN_TEXT" value="106" />
           <entry key="XML" value="227" />
           <entry key="YAML" value="266" />
           <entry key="spring.factories" value="9" />
@@ -129,52 +118,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-146">
-              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/DertaProviderAutoConfiguration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="17" selection-start-line="17" selection-end-line="20" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/DertaProviderProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/derta-rpc-provider/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1142">
-              <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-            </state>
-          </provider>
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test-consumer/src/main/java/com/sxl/sample/test/consumer/TestConsumerApplication.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -214,11 +157,50 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServerHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/derta-rpc-common/src/main/java/com/sxl/common/register/zookeeper/ZooKeeperServiceRegistry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/derta-rpc-common/src/main/java/com/sxl/common/register/zookeeper/ZooKeeperServiceDiscovery.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/derta-rpc-common/src/main/resources/log4j.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test-provider/src/main/java/com/sxl/sample/test/provider/service/MyServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+            <state relative-caret-position="271">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -267,7 +249,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dertaRpc-provider/src/main/java/org/sxl/rpc/listener/RpcListener.java" />
         <option value="$PROJECT_DIR$/dertaRpc-provider/src/main/resources/META-INF/spring.factories" />
         <option value="$PROJECT_DIR$/dertaRpc-provider/src/main/java/org/sxl/rpc/ann/RpcService.java" />
         <option value="$PROJECT_DIR$/dertaRpc-consumer/src/main/java/com/sxl/rpc/client/RpcClientHandler.java" />
@@ -318,6 +299,7 @@
         <option value="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/DertaProviderAutoConfiguration.java" />
         <option value="$PROJECT_DIR$/test-consumer/src/main/java/com/sxl/sample/test/consumer/controller/MyController.java" />
         <option value="$PROJECT_DIR$/test-provider/src/main/java/com/sxl/sample/test/provider/service/MyServiceImpl.java" />
+        <option value="$PROJECT_DIR$/derta-rpc-common/src/main/resources/log4j.properties" />
       </list>
     </option>
   </component>
@@ -373,6 +355,65 @@
               <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
               <item name="derta-spring-boot-stater" type="462c0819:PsiDirectoryNode" />
               <item name="derta-rpc-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
+              <item name="derta-spring-boot-stater" type="462c0819:PsiDirectoryNode" />
+              <item name="derta-rpc-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
+              <item name="derta-spring-boot-stater" type="462c0819:PsiDirectoryNode" />
+              <item name="derta-rpc-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
+              <item name="derta-spring-boot-stater" type="462c0819:PsiDirectoryNode" />
+              <item name="derta-rpc-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
+              <item name="derta-spring-boot-stater" type="462c0819:PsiDirectoryNode" />
+              <item name="derta-rpc-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
+              <item name="derta-spring-boot-stater" type="462c0819:PsiDirectoryNode" />
+              <item name="derta-rpc-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="register" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
+              <item name="derta-spring-boot-stater" type="462c0819:PsiDirectoryNode" />
+              <item name="derta-rpc-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="register" type="462c0819:PsiDirectoryNode" />
+              <item name="zookeeper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
+              <item name="derta-spring-boot-stater" type="462c0819:PsiDirectoryNode" />
+              <item name="derta-rpc-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="derta-spring-boot-stater" type="b2602c69:ProjectViewProjectNode" />
@@ -756,7 +797,7 @@
       <workItem from="1571899051342" duration="5966000" />
       <workItem from="1572841658297" duration="2352000" />
       <workItem from="1572851580389" duration="582000" />
-      <workItem from="1572920047811" duration="4300000" />
+      <workItem from="1572920047811" duration="6019000" />
     </task>
     <task id="LOCAL-00001" summary="删除无用">
       <created>1570791208818</created>
@@ -807,11 +848,18 @@
       <option name="project" value="LOCAL" />
       <updated>1572851987103</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="修改Java版本">
+      <created>1572924386124</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1572924386124</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161555000" />
+    <option name="totallyTimeSpent" value="163274000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -826,7 +874,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24932976" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24932976" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -835,7 +883,7 @@
       <window_info id="JRebel" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932975" visible="true" weight="0.18208517" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.41409692" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5315712" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.18942732" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -902,7 +950,8 @@
     <MESSAGE value="增加日志" />
     <MESSAGE value="提交" />
     <MESSAGE value="修改名称" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改名称" />
+    <MESSAGE value="修改Java版本" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改Java版本" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -921,7 +970,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test-provider/src/main/java/com/sxl/sample/test/provider/service/MyServiceImpl.java</url>
-          <line>19</line>
+          <line>18</line>
           <properties />
           <option name="timeStamp" value="47" />
         </line-breakpoint>
@@ -977,14 +1026,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test-provider/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" selection-start-line="25" selection-end-line="26" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/test-consumer/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -1208,20 +1249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/derta-rpc-common/src/main/java/com/sxl/common/register/zookeeper/ZooKeeperServiceDiscovery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="16" selection-start-line="16" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/derta-rpc-common/src/main/java/com/sxl/common/register/zookeeper/ZooKeeperServiceRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/derta-rpc-common/src/main/java/com/sxl/common/register/ServiceDiscovery.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1262,18 +1289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#764#765#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1366,11 +1381,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test-provider/src/main/java/com/sxl/sample/test/provider/service/MyServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="271">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/derta-rpc-common/src/main/java/com/sxl/common/register/zookeeper/ZooKeeperServiceRegistry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/derta-rpc-common/src/main/java/com/sxl/common/register/zookeeper/ZooKeeperServiceDiscovery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/derta-rpc-common/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
