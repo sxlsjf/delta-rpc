@@ -21,7 +21,7 @@ import org.sxl.rpc.container.LocalHandlerMap;
  * @description：RPC 服务器（用于发布 RPC 服务）
  */
 @Slf4j
-public class RpcServer implements InitializingBean {
+public class RpcServer {
 
 
     private ZooKeeperServiceRegistry serviceRegistry;
@@ -36,13 +36,13 @@ public class RpcServer implements InitializingBean {
     }
 
 
-    public void afterPropertiesSet() {
+    public void action() {
 
         new Thread(() -> {
 
             try {
                 Thread.sleep(5000);
-            }catch (Exception e){
+            }catch (Exception ignored){
 
             }
             log.info("另起一个线程");
@@ -51,7 +51,7 @@ public class RpcServer implements InitializingBean {
 
     }
 
-    public void start(){
+    private void start(){
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
@@ -63,15 +63,13 @@ public class RpcServer implements InitializingBean {
             .childOption(ChannelOption.SO_KEEPALIVE, true)
             .childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
-                public void initChannel(SocketChannel channel) throws Exception {
+                public void initChannel(SocketChannel channel) {
                     ChannelPipeline pipeline = channel.pipeline();
                     pipeline.addLast(new RpcDecoder(RpcRequest.class)); // 解码 RPC 请求
                     pipeline.addLast(new RpcEncoder(RpcResponse.class)); // 编码 RPC 响应
                     pipeline.addLast(new RpcServerHandler(localHandlerMap)); // 处理 RPC 请求
                 }
             });
-
-
 
             //String ip = InetAddress.getLocalHost().getHostAddress();
             String ip = "127.0.0.1";
@@ -88,6 +86,7 @@ public class RpcServer implements InitializingBean {
             log.info("服务启动：server started on port {}", port);
             // 关闭 RPC 服务器
             future.channel().closeFuture().sync();
+
         } catch (Exception e){
             log.error("RPC服务端启动异常，监听{}端口", e);
         }finally {

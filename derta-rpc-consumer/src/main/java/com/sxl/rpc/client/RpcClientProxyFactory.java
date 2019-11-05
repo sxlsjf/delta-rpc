@@ -6,13 +6,14 @@ import com.sxl.common.core.util.StringUtil;
 import com.sxl.common.register.ServiceDiscovery;
 import lombok.extern.slf4j.Slf4j;
 import java.lang.reflect.Proxy;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
  * @Author: shenxl
  * @Date: 2019/9/29 14:35
  * @Version 1.0
- * @description：${description}
+ * @description
  */
 @Slf4j
 public class RpcClientProxyFactory {
@@ -55,7 +56,7 @@ public class RpcClientProxyFactory {
                             serviceName += "-" + serviceVersion;
                         }
                         serviceAddress = serviceDiscovery.discover(serviceName);
-                        log.debug("discover service: {} => {}", serviceName, serviceAddress);
+                        log.info("discover service: {} => {}", serviceName, serviceAddress);
                     }
                     if (StringUtil.isEmpty(serviceAddress)) {
                         throw new RuntimeException("server address is empty");
@@ -64,11 +65,14 @@ public class RpcClientProxyFactory {
                     RpcClient client = new RpcClient(request,serviceAddress);
                     long time = System.currentTimeMillis();
                     RpcResponse response = client.send();
-                    log.debug("time: {}ms", System.currentTimeMillis() - time);
-                    if (response == null) {
+                    log.info("time: {}ms", System.currentTimeMillis() - time);
+
+                    Optional.of(response);
+                    /*if (response == null) {
                         throw new RuntimeException("response is null");
-                    }
+                    }*/
                     // 返回 RPC 响应结果
+
                     if (response.hasException()) {
                         throw response.getException();
                     } else {

@@ -30,7 +30,7 @@
       <option name="IGNORE_JAVADOC_PERIOD" value="true" />
       <option name="IGNORE_DUPLICATED_THROWS" value="false" />
       <option name="IGNORE_POINT_TO_ITSELF" value="false" />
-      <option name="myAdditionalJavadocTags" value="description：基于,Version,Date:,Author:,description：服务发现接口,description：服务注册接口,description：常量,description:集合工具类,description：序列化工具类（基于,description：集合工具类,description：RPC,description：${description}" />
+      <option name="myAdditionalJavadocTags" value="description：基于,Version,Date:,Author:,description：服务发现接口,description：服务注册接口,description：常量,description:集合工具类,description：序列化工具类（基于,description：集合工具类,description：RPC,description：${description},description:bean后置处理器，处理处理bean中带RpcReference的字段,description：缓存本地服务,description：处理,description" />
     </inspection_tool>
   </profile>
 </component>

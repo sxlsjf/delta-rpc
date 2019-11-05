@@ -13,8 +13,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "spring.derta")
 public class DertaProviderProperties {
 
+    /**
+     *zk注册地址
+     */
     private String zkAddressRegister;
 
+    /**
+     *端口号
+     */
     private Integer serverPort;
 
     private boolean provider;

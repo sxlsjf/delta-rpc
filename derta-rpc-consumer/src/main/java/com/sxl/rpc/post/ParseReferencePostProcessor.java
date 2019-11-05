@@ -16,7 +16,7 @@ import java.util.Optional;
  * @Author: shenxl
  * @Date: 2019/9/29 15:16
  * @Version 1.0
- * @description:bean后置处理器，处理处理bean中带RpcReference的字段
+ * @description bean后置处理器，处理处理bean中带RpcReference的字段
  */
 @Slf4j
 public class ParseReferencePostProcessor implements BeanPostProcessor {

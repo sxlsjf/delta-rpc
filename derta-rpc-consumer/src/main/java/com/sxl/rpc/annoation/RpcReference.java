@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * @Author: shenxl
  * @Date: 2019/9/29 15:13
  * @Version 1.0
- * @description：${description}
+ * @description
  */
 
 @Target({ElementType.FIELD})
