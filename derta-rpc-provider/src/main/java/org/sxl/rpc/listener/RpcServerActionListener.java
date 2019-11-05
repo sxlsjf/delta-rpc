@@ -12,13 +12,12 @@ import org.sxl.rpc.server.RpcServer;
  * @Version 1.0
  * @description
  */
-public class RefreshInstanceListener  implements ApplicationListener<ApplicationStartedEvent> {
+public class RpcServerActionListener implements ApplicationListener<ApplicationStartedEvent> {
 
     @Override
     public void onApplicationEvent(ApplicationStartedEvent applicationStartedEvent) {
 
         applicationStartedEvent.getApplicationContext().getBean(RpcServer.class).action();
-
 
     }
 }
