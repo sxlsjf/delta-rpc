@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="391107dc-0972-4f49-8c4a-0340f37aa8dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/listener/RefreshInstanceListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/DertaConsumerAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/DertaConsumerAutoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/DertaConsumerProperies.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/DertaConsumerProperies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/annoation/RpcReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/annoation/RpcReference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/client/RpcClientProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/client/RpcClientProxyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/post/ParseReferencePostProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/post/ParseReferencePostProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/DertaProviderProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/DertaProviderProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/resources/META-INF/spring.factories" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/resources/META-INF/spring.factories" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -98,10 +88,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="80" />
+          <entry key="dummy" value="105" />
           <entry key="factories" value="9" />
           <entry key="java" value="3628" />
-          <entry key="txt" value="48" />
+          <entry key="txt" value="58" />
           <entry key="xml" value="227" />
           <entry key="yml" value="266" />
         </counts>
@@ -109,7 +99,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="3628" />
-          <entry key="PLAIN_TEXT" value="128" />
+          <entry key="PLAIN_TEXT" value="163" />
           <entry key="XML" value="227" />
           <entry key="YAML" value="266" />
           <entry key="spring.factories" value="9" />
@@ -125,10 +115,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-622">
+            <state relative-caret-position="197">
               <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -139,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/listener/RefreshInstanceListener.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/listener/RpcServerActionListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="483">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -261,7 +251,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test-consumer/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/DertaRpc-common/src/main/java/com/sxl/common/core/coder/RpcDecoder.java" />
         <option value="$PROJECT_DIR$/DertaRpc-common/src/main/java/com/sxl/common/core/util/SerializationUtil.java" />
         <option value="$PROJECT_DIR$/DertaRpc-common/src/main/java/com/sxl/common/core/util/StringUtil.java" />
@@ -312,6 +301,7 @@
         <option value="$PROJECT_DIR$/derta-rpc-provider/src/main/resources/META-INF/spring.factories" />
         <option value="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java" />
         <option value="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/listener/RefreshInstanceListener.java" />
+        <option value="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/listener/RpcServerActionListener.java" />
       </list>
     </option>
   </component>
@@ -760,7 +750,7 @@
       <workItem from="1571899051342" duration="5966000" />
       <workItem from="1572841658297" duration="2352000" />
       <workItem from="1572851580389" duration="582000" />
-      <workItem from="1572920047811" duration="13480000" />
+      <workItem from="1572920047811" duration="14299000" />
     </task>
     <task id="LOCAL-00001" summary="删除无用">
       <created>1570791208818</created>
@@ -825,11 +815,25 @@
       <option name="project" value="LOCAL" />
       <updated>1572928780325</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="服务启动优化">
+      <created>1572937329179</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1572937329179</updated>
+    </task>
+    <task id="LOCAL-00011" summary="服务启动优化">
+      <created>1572937460469</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1572937460469</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170735000" />
+    <option name="totallyTimeSpent" value="171554000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -842,7 +846,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24932976" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -853,7 +856,7 @@
       <window_info id="JRebel" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932975" weight="0.16005874" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1483113" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5154185" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.18942732" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -922,7 +925,8 @@
     <MESSAGE value="修改名称" />
     <MESSAGE value="修改Java版本" />
     <MESSAGE value="增加log日志" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加log日志" />
+    <MESSAGE value="服务启动优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="服务启动优化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1392,24 +1396,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/listener/RpcServerActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-622">
+        <state relative-caret-position="197">
           <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1936#2445#0" expanded="true" />
             <element signature="e#2444#2445#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/listener/RefreshInstanceListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
