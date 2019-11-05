@@ -13,6 +13,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.sxl.rpc.container.LocalHandlerMap;
 
+import java.util.Optional;
+
 /**
  * @Author: shenxl
  * @Date: 2019/9/30 14:32
@@ -22,8 +24,8 @@ import org.sxl.rpc.container.LocalHandlerMap;
 @Slf4j
 public class RpcServer {
 
-
     private ZooKeeperServiceRegistry serviceRegistry;
+
     private Integer port;
 
     private final LocalHandlerMap localHandlerMap;
@@ -39,18 +41,14 @@ public class RpcServer {
 
         new Thread(() -> {
 
-            try {
-                Thread.sleep(5000);
-            }catch (Exception ignored){
-
-            }
             log.info("另起一个线程");
-            start();
+            startServer();
+
         }).start();
 
     }
 
-    private void start(){
+    private void startServer(){
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
@@ -76,12 +74,12 @@ public class RpcServer {
             // 启动 RPC 服务器
             ChannelFuture future = bootstrap.bind(ip, port).sync();
             // 注册 RPC 服务地址
-            if (serviceRegistry != null) {
-                for (String interfaceName : localHandlerMap.getHandlers().keySet()) {
-                    serviceRegistry.register(interfaceName, serviceAddress);
-                    log.info("注册：register service: {} => {}", interfaceName, serviceAddress);
-                }
-            }
+            Optional.ofNullable(serviceRegistry).ifPresent((t)->
+                localHandlerMap.getHandlers().keySet().parallelStream().forEach((s)->{
+                t.register(s, serviceAddress);
+                log.info("注册：register service: {} => {}", s, serviceAddress);
+            }));
+
             log.info("服务启动：server started on port {}", port);
             // 关闭 RPC 服务器
             future.channel().closeFuture().sync();

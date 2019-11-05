@@ -11,6 +11,8 @@ import net.sf.cglib.reflect.FastClass;
 import net.sf.cglib.reflect.FastMethod;
 import org.sxl.rpc.container.LocalHandlerMap;
 
+import java.util.Optional;
+
 
 /**
  * @Author: shenxl
@@ -27,6 +29,7 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
         this.localHandlerMap= localHandlerMap;
     }
 
+    private String serviceName;
     @Override
     public void channelRead0(final ChannelHandlerContext ctx, RpcRequest request)  {
         // 创建并初始化 RPC 响应对象
@@ -46,15 +49,16 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
 
     private Object handle(RpcRequest request) throws Exception {
         // 获取服务对象
-        String serviceName = request.getInterfaceName();
+        serviceName = request.getInterfaceName();
         String serviceVersion = request.getServiceVersion();
         if (StringUtil.isNotEmpty(serviceVersion)) {
             serviceName += "-" + serviceVersion;
         }
         Object serviceBean = localHandlerMap.getHandlers().get(serviceName);
-        if (serviceBean == null) {
-            throw new RuntimeException(String.format("can not find service bean by key: %s", serviceName));
-        }
+
+        Optional.ofNullable(serviceBean).orElseThrow(()->
+                new RuntimeException(String.format("can not find service bean by key: %s",serviceName)));
+
         // 获取反射调用所需的参数
         Class<?> serviceClass = serviceBean.getClass();
         String methodName = request.getMethodName();

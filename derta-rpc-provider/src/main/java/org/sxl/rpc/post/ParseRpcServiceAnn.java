@@ -29,18 +29,20 @@ public class ParseRpcServiceAnn implements BeanPostProcessor {
 
         RpcService rpcService=bean.getClass().getAnnotation(RpcService.class);
 
+        Optional.of(localHandlerMap);
+
         Optional.ofNullable(rpcService).ifPresent((t)->{
-            String serviceName = rpcService.value().getName();
-            String serviceVersion = rpcService.version();
+
+            String serviceName = t.value().getName();
+            String serviceVersion = t.version();
+
             if (StringUtil.isNotEmpty(serviceVersion)) {
                 serviceName += "-" + serviceVersion;
             }
+            localHandlerMap.getHandlers().put(serviceName, bean);
 
-            if (null!=localHandlerMap){
+            log.info("服务实例 {} 加入本地缓存...",serviceName);
 
-                localHandlerMap.getHandlers().put(serviceName, bean);
-                log.info("服务实例 {} 加入本地缓存...",serviceName);
-            }
         });
 
         return bean;

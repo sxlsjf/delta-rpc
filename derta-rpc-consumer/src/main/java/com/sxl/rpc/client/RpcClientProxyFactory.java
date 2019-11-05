@@ -50,7 +50,7 @@ public class RpcClientProxyFactory {
                     String serviceAddress=null;
                     // 获取 RPC 服务地址
                     if (serviceDiscovery != null) {
-                        //serviceDiscovery.getAddress();
+
                         String serviceName = interfaceClass.getName();
                         if (StringUtil.isNotEmpty(serviceVersion)) {
                             serviceName += "-" + serviceVersion;
@@ -65,14 +65,11 @@ public class RpcClientProxyFactory {
                     RpcClient client = new RpcClient(request,serviceAddress);
                     long time = System.currentTimeMillis();
                     RpcResponse response = client.send();
-                    log.info("time: {}ms", System.currentTimeMillis() - time);
+                    log.info("耗时: {}ms", System.currentTimeMillis() - time);
 
                     Optional.of(response);
-                    /*if (response == null) {
-                        throw new RuntimeException("response is null");
-                    }*/
-                    // 返回 RPC 响应结果
 
+                    // 返回 RPC 响应结果
                     if (response.hasException()) {
                         throw response.getException();
                     } else {
