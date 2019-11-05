@@ -30,6 +30,10 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse>{
     private RpcResponse response;
 
 
+    /**
+     * @param request
+     * @param serviceAddress
+     */
     public RpcClient(RpcRequest request, String serviceAddress) {
         this.request = request;
         this.serviceAddress = serviceAddress;
@@ -48,8 +52,6 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse>{
     }
     /**
      * 连接远程服务
-     *
-     *
      */
     public RpcResponse send() {
         EventLoopGroup group = new NioEventLoopGroup();
@@ -69,7 +71,6 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse>{
                     pipeline.addLast(RpcClient.this); // 处理 RPC 响应
                 }
             });
-
 
             String[] array = StringUtil.split(serviceAddress, ":");
             String host = array[0];

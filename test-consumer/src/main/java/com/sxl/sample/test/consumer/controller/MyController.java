@@ -20,8 +20,10 @@ public class MyController {
     @RequestMapping("/index")
     public String say(){
 
-        String str=myservice.sayHello("shenxl");
-        System.out.println("===================="+str);
+        String str=myservice.sayHello(" world");
+
+        System.out.println("消费端===================="+str);
+
         return str;
 
     }

@@ -9,14 +9,14 @@ import java.util.Map;
  * @Author: shenxl
  * @Date: 2019/9/30 10:27
  * @Version 1.0
- * @description：${description}
+ * @description：缓存本地服务
  */
 
 @Data
 public class LocalHandlerMap {
 
     //缓存本地实例
-    private Map<String, Object> handlers=new ConcurrentHashMap<String, Object> ();
+    private final Map<String, Object> handlers=new ConcurrentHashMap<> (16);
 
 }
 

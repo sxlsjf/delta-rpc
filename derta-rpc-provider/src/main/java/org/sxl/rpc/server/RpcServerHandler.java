@@ -13,20 +13,22 @@ import org.sxl.rpc.container.LocalHandlerMap;
 
 
 /**
- * @author kangyonggan
- * @since 2019-02-14
+ * @Author: shenxl
+ * @Date: 2019/9/30 14:32
+ * @Version 1.0
+ * @description：${description}
  */
 @Slf4j
 public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
 
-    private LocalHandlerMap localHandlerMap;
+    private final LocalHandlerMap localHandlerMap;
 
     public RpcServerHandler(LocalHandlerMap localHandlerMap){
         this.localHandlerMap= localHandlerMap;
     }
 
     @Override
-    public void channelRead0(final ChannelHandlerContext ctx, RpcRequest request) throws Exception {
+    public void channelRead0(final ChannelHandlerContext ctx, RpcRequest request)  {
         // 创建并初始化 RPC 响应对象
         RpcResponse response = new RpcResponse();
         response.setRequestId(request.getRequestId());

@@ -16,9 +16,9 @@ import org.sxl.rpc.server.RpcServer;
 
 /**
  * @Author: shenxl
- * @Date: 2019/9/30 14:32
- * @Version 1.0
- * @description：${description}
+ *  * @Date: 2019/9/30 14:32
+ *  * @Version 1.0
+ *  * @description：${description}
  */
 
 @Configuration

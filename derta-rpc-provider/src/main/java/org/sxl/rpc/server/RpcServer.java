@@ -15,10 +15,10 @@ import org.springframework.beans.factory.InitializingBean;
 import org.sxl.rpc.container.LocalHandlerMap;
 
 /**
- * RPC 服务器（用于发布 RPC 服务）
- *
- * @author huangyong
- * @since 1.0.0
+ * @Author: shenxl
+ * @Date: 2019/9/30 14:32
+ * @Version 1.0
+ * @description：RPC 服务器（用于发布 RPC 服务）
  */
 @Slf4j
 public class RpcServer implements InitializingBean {
@@ -27,7 +27,7 @@ public class RpcServer implements InitializingBean {
     private ZooKeeperServiceRegistry serviceRegistry;
     private Integer port;
 
-    private LocalHandlerMap localHandlerMap;
+    private final LocalHandlerMap localHandlerMap;
 
     public RpcServer(LocalHandlerMap localHandlerMap, Integer port, ZooKeeperServiceRegistry serviceRegistry) {
         this.serviceRegistry=serviceRegistry;
@@ -38,17 +38,15 @@ public class RpcServer implements InitializingBean {
 
     public void afterPropertiesSet() {
 
-        new Thread(new Runnable() {
-            public void run() {
+        new Thread(() -> {
 
-                try {
-                    Thread.sleep(5000);
-                }catch (Exception e){
+            try {
+                Thread.sleep(5000);
+            }catch (Exception e){
 
-                }
-                log.info("另起一个线程");
-                start();
             }
+            log.info("另起一个线程");
+            start();
         }).start();
 
     }
