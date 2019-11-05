@@ -21,6 +21,8 @@ public class RpcClientProxyFactory {
 
     private ServiceDiscovery serviceDiscovery;
 
+    private String serviceAddress;
+
     public RpcClientProxyFactory() {}
 
     public RpcClientProxyFactory(ServiceDiscovery serviceDiscovery) {
@@ -47,17 +49,17 @@ public class RpcClientProxyFactory {
                     request.setMethodName(method.getName());
                     request.setParameterTypes(method.getParameterTypes());
                     request.setParameters(args);
-                    String serviceAddress=null;
-                    // 获取 RPC 服务地址
-                    if (serviceDiscovery != null) {
 
+                    // 获取 RPC 服务地址
+                    Optional.ofNullable(serviceDiscovery).ifPresent((t)->{
                         String serviceName = interfaceClass.getName();
                         if (StringUtil.isNotEmpty(serviceVersion)) {
                             serviceName += "-" + serviceVersion;
                         }
                         serviceAddress = serviceDiscovery.discover(serviceName);
                         log.info("discover service: {} => {}", serviceName, serviceAddress);
-                    }
+                    });
+
                     if (StringUtil.isEmpty(serviceAddress)) {
                         throw new RuntimeException("server address is empty");
                     }

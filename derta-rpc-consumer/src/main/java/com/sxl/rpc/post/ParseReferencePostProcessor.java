@@ -23,7 +23,7 @@ public class ParseReferencePostProcessor implements BeanPostProcessor {
 
     private RpcClientProxyFactory factory;
 
-    public ParseReferencePostProcessor(RpcClientProxyFactory factory){
+    public ParseReferencePostProcessor(RpcClientProxyFactory factory) {
         this.factory = factory;
     }
 
@@ -36,27 +36,26 @@ public class ParseReferencePostProcessor implements BeanPostProcessor {
         } else {
             objClz = bean.getClass();
         }
-        try {
-            for (Field field : objClz.getDeclaredFields()) {
 
-                RpcReference reference = field.getAnnotation(RpcReference.class);
+        for (Field field : objClz.getDeclaredFields()) {
 
-                Optional.ofNullable(reference).ifPresent((t)->{
-                    Object objProxy=factory.create(field.getType(),reference.version());
-                    field.setAccessible(true);
-                    try {
-                        field.set(bean,objProxy);
-                    } catch (IllegalAccessException e) {
-                        log.error("赋值出错",e);
-                    }
-                });
-            }
-        } catch (Exception e) {
-            throw new BeanCreationException(beanName, e);
+            RpcReference reference = field.getAnnotation(RpcReference.class);
+
+            Optional.ofNullable(reference).ifPresent((t) -> {
+                Object objProxy = factory.create(field.getType(), reference.version());
+                field.setAccessible(true);
+                try {
+                    field.set(bean, objProxy);
+                } catch (IllegalAccessException e) {
+                    log.error("赋值出错", e);
+                }
+            });
         }
+
 
         return bean;
     }
+
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 
