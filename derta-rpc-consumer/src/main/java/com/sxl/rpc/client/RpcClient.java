@@ -75,8 +75,10 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse>{
             String[] array = StringUtil.split(serviceAddress, ":");
             String host = array[0];
             int port = Integer.parseInt(array[1]);
+
             // 连接 RPC 服务器
             ChannelFuture future = bootstrap.connect(host, port).sync();
+
             // 写入 RPC 请求数据并关闭连接
             Channel channel = future.channel();
             channel.writeAndFlush(request).sync();

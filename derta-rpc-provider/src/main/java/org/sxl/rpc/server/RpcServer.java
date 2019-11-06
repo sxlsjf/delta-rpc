@@ -39,12 +39,9 @@ public class RpcServer {
 
     public void action() {
 
-        new Thread(() -> {
 
-            log.info("另起一个线程");
-            startServer();
-
-        }).start();
+        log.info("另起一个rpc服务线程...");
+        new Thread(() -> startServer()).start();
 
     }
 
@@ -80,7 +77,7 @@ public class RpcServer {
                 log.info("注册：register service: {} => {}", s, serviceAddress);
             }));
 
-            log.info("服务启动：server started on port {}", port);
+            log.info("服务已启动：server started on port {}", port);
             // 关闭 RPC 服务器
             future.channel().closeFuture().sync();
 
