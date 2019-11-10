@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="391107dc-0972-4f49-8c4a-0340f37aa8dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-common/src/main/java/com/sxl/common/core/util/SerializationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-common/src/main/java/com/sxl/common/core/util/SerializationUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/post/ParseRpcServiceAnn.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/post/ParseRpcServiceAnn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -94,16 +92,16 @@
         <counts>
           <entry key="dummy" value="105" />
           <entry key="factories" value="9" />
-          <entry key="java" value="3948" />
-          <entry key="txt" value="62" />
+          <entry key="java" value="3966" />
+          <entry key="txt" value="69" />
           <entry key="xml" value="227" />
           <entry key="yml" value="266" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3948" />
-          <entry key="PLAIN_TEXT" value="167" />
+          <entry key="JAVA" value="3966" />
+          <entry key="PLAIN_TEXT" value="174" />
           <entry key="XML" value="227" />
           <entry key="YAML" value="266" />
           <entry key="spring.factories" value="9" />
@@ -155,11 +153,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
+            <state relative-caret-position="151">
+              <caret line="44" column="46" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,10 +165,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServerHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
+            <state relative-caret-position="141">
               <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -306,8 +304,8 @@
         <option value="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/client/RpcClient.java" />
         <option value="$PROJECT_DIR$/derta-rpc-common/src/main/java/com/sxl/common/core/util/SerializationUtil.java" />
         <option value="$PROJECT_DIR$/derta-rpc-consumer/src/main/java/com/sxl/rpc/client/RpcClientProxyFactory.java" />
-        <option value="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java" />
         <option value="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/post/ParseRpcServiceAnn.java" />
+        <option value="$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java" />
       </list>
     </option>
   </component>
@@ -341,10 +339,9 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="450" />
-    <option name="y" value="60" />
-    <option name="width" value="1385" />
-    <option name="height" value="895" />
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -706,7 +703,7 @@
       <workItem from="1573092012271" duration="3292000" />
       <workItem from="1573102542557" duration="183000" />
       <workItem from="1573182371283" duration="974000" />
-      <workItem from="1573374076839" duration="2018000" />
+      <workItem from="1573374076839" duration="4722000" />
     </task>
     <task id="LOCAL-00001" summary="删除无用">
       <created>1570791208818</created>
@@ -813,11 +810,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573017446859</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="设置为守护线程">
+      <created>1573379339530</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1573379339531</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191995000" />
+    <option name="totallyTimeSpent" value="194699000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,7 +836,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2627346" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2627346" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -841,7 +845,7 @@
       <window_info id="JRebel" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932975" weight="0.16005874" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30396476" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36563876" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.18942732" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -856,7 +860,7 @@
       <window_info anchor="bottom" id="FindBugs-IDEA" order="14" sideWeight="0.49932975" weight="0.32892805" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
       <window_info anchor="bottom" id="Messages" order="16" sideWeight="0.49932975" weight="0.5051395" />
-      <window_info anchor="bottom" id="JRebel Executor" order="17" sideWeight="0.49932975" weight="0.14243759" />
+      <window_info active="true" anchor="bottom" id="JRebel Executor" order="17" sideWeight="0.49932975" visible="true" weight="0.40675476" />
       <window_info anchor="bottom" id="JRebel Console" order="18" sideWeight="0.50067025" side_tool="true" weight="0.5330396" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -912,7 +916,8 @@
     <MESSAGE value="增加log日志" />
     <MESSAGE value="服务启动优化" />
     <MESSAGE value="代码优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="代码优化" />
+    <MESSAGE value="设置为守护线程" />
+    <option name="LAST_COMMIT_MESSAGE" value="设置为守护线程" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -925,7 +930,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java</url>
-          <line>56</line>
+          <line>53</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
@@ -949,7 +954,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java</url>
-          <line>85</line>
+          <line>82</line>
           <properties />
           <option name="timeStamp" value="51" />
         </line-breakpoint>
@@ -961,7 +966,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java</url>
-          <line>71</line>
+          <line>68</line>
           <properties />
           <option name="timeStamp" value="53" />
         </line-breakpoint>
@@ -1347,16 +1352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/post/ParseRpcServiceAnn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
@@ -1366,8 +1361,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
+        <state relative-caret-position="141">
           <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/derta-rpc-provider/src/main/java/org/sxl/rpc/server/RpcServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="44" column="46" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -12,7 +12,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.sxl.rpc.container.LocalHandlerMap;
-
 import java.util.Optional;
 
 /**
@@ -41,11 +40,7 @@ public class RpcServer {
 
         log.info("另起一个rpc服务线程...");
 
-        Thread rpcServer=new Thread(this::startServer);
-        //设置为守护线程
-        rpcServer.setDaemon(true);
-        //启动服务器
-        rpcServer.start();
+        new Thread(this::startServer).start();
 
     }
 
