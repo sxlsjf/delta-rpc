@@ -39,9 +39,13 @@ public class RpcServer {
 
     public void action() {
 
-
         log.info("另起一个rpc服务线程...");
-        new Thread(() -> startServer()).start();
+
+        Thread rpcServer=new Thread(this::startServer);
+        //设置为守护线程
+        rpcServer.setDaemon(true);
+        //启动服务器
+        rpcServer.start();
 
     }
 

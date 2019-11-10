@@ -42,8 +42,6 @@ public class ParseRpcServiceAnn implements BeanPostProcessor {
                 localHandlerMap.getHandlers().put(serviceName, bean);
                 log.info("服务实例 {} 加入本地缓存...",serviceName);
             }
-
-
         });
 
         return bean;
