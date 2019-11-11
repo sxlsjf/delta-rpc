@@ -12,7 +12,11 @@
         <module>derta-rpc-provider</module>
         <module>derta-rpc-consumer</module>
         <module>derta-rpc-common</module>
+        <module>sample-api</module>
+        <module>test-provider</module>
+        <module>test-consumer</module>
     </modules>
+
 
     <properties>
         <java.version>1.8</java.version>
@@ -30,11 +34,34 @@
         <version.maven-surefire-plugin>2.18.1</version.maven-surefire-plugin>
         <version.maven-source-plugin>2.4</version.maven-source-plugin>
         <version.maven-javadoc-plugin>2.10.3</version.maven-javadoc-plugin>
+        <spring.boot.version>2.1.9.RELEASE</spring.boot.version>
+        <spring.platform.version>Cairo-SR8</spring.platform.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--<dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>-->
+            <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+                <version>${spring.platform.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+           <!-- <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
                 <version>2.1.9.RELEASE</version>
@@ -43,7 +70,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-autoconfigure</artifactId>
                 <version>2.1.9.RELEASE</version>
-            </dependency>
+            </dependency>-->
 
             <dependency>
                 <groupId>cn.hutool</groupId>
