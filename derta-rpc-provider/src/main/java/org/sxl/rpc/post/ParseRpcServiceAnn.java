@@ -29,7 +29,7 @@ public class ParseRpcServiceAnn implements BeanPostProcessor {
 
         RpcService rpcService=bean.getClass().getAnnotation(RpcService.class);
 
-        Optional.of(localHandlerMap);
+        Optional.ofNullable(localHandlerMap).orElseThrow(NullPointerException::new);
 
         Optional.ofNullable(rpcService).ifPresent((t)->{
 
