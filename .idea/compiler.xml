@@ -15,6 +15,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="derta-rpc-autoconfiration" target="1.5" />
       <module name="rpc-consumer" target="1.8" />
       <module name="rpc-provider" target="1.8" />
       <module name="sample-client" target="1.8" />
