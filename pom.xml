@@ -12,6 +12,7 @@
         <module>derta-rpc-provider</module>
         <module>derta-rpc-consumer</module>
         <module>derta-rpc-common</module>
+        <module>sample-api</module>
         <module>derta-rpc-autoconfiration</module>
     </modules>
 
