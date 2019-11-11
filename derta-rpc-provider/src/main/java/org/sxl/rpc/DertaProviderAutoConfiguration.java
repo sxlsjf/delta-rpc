@@ -8,7 +8,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import org.sxl.rpc.ann.RpcService;
+import org.sxl.rpc.ann.DeltaService;
+
 import org.sxl.rpc.container.LocalHandlerMap;
 
 import org.sxl.rpc.post.ParseRpcServiceAnn;
@@ -22,7 +23,7 @@ import org.sxl.rpc.server.RpcServer;
  */
 
 @Configuration
-@ConditionalOnClass(RpcService.class)
+@ConditionalOnClass(DeltaService.class)
 @EnableConfigurationProperties(DertaProviderProperties.class)
 //@ConditionalOnProperty(prefix = "spring.derta", name = "provider", havingValue = "true")
 public class DertaProviderAutoConfiguration {
