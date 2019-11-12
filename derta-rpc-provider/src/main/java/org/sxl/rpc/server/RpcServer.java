@@ -17,11 +17,11 @@ import org.sxl.rpc.container.LocalHandlerMap;
 /**
  * RPC 服务器（用于发布 RPC 服务）
  *
- * @author huangyong
+ * @author
  * @since 1.0.0
  */
 @Slf4j
-public class RpcServer implements InitializingBean {
+public class RpcServer  {
 
 
     private ZooKeeperServiceRegistry serviceRegistry;
@@ -35,21 +35,10 @@ public class RpcServer implements InitializingBean {
         this.port=port;
     }
 
+    public void action() {
 
-    public void afterPropertiesSet() {
-
-        new Thread(new Runnable() {
-            public void run() {
-
-                try {
-                    Thread.sleep(5000);
-                }catch (Exception e){
-
-                }
-                log.info("另起一个线程");
-                start();
-            }
-        }).start();
+        log.info("另起一个线程");
+        new Thread(this::start).start();
 
     }
 

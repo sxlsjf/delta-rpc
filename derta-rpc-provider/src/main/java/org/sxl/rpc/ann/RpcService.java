@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 /**
  * RPC 服务注解（标注在服务实现类上）
  * Component 是为了让 spring 扫描到
- * @author huangyong
+ * @author
  * @since 1.0.0
  */
 @Target({ElementType.TYPE})

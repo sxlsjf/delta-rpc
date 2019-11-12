@@ -13,8 +13,8 @@ import org.sxl.rpc.container.LocalHandlerMap;
 
 
 /**
- * @author kangyonggan
- * @since 2019-02-14
+ * @author
+ * @since
  */
 @Slf4j
 public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
