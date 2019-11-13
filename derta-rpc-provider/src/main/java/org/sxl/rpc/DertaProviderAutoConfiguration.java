@@ -5,17 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import org.springframework.context.event.EventListener;
 import org.sxl.rpc.ann.DeltaService;
 
 import org.sxl.rpc.container.LocalHandlerMap;
 
-import org.sxl.rpc.listener.HandlerEvent;
 import org.sxl.rpc.post.ParseRpcServiceAnn;
 import org.sxl.rpc.server.RpcServer;
 
@@ -59,17 +56,7 @@ public class DertaProviderAutoConfiguration {
         return new ParseRpcServiceAnn(localHandlerMap);
     }
 
-    @EventListener
-    public void eventListener(ApplicationStartedEvent event){
-
-        event.getApplicationContext().getBean(RpcServer.class).action();
-        System.out.println("监听了-----"+event.getSource());
-        System.out.println("监听了-----"+event.getClass());
-    }
 
 
-   /* @Bean
-    public HandlerEvent handlerEvent(){
-        return new HandlerEvent();
-    }*/
+
 }
