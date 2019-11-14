@@ -36,4 +36,14 @@ public class RpcRequest {
      */
     private Object[] parameters;
 
+    private RpcResponse response;
+
+    public Boolean getIsResponse() {
+        if (response==null){
+            return false;
+        }
+        return true;
+    }
+
+
 }

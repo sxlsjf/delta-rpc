@@ -4,6 +4,7 @@ import com.sxl.common.core.bean.RpcRequest;
 import com.sxl.common.core.bean.RpcResponse;
 import com.sxl.common.core.util.StringUtil;
 import com.sxl.common.register.ServiceDiscovery;
+import com.sxl.rpc.pool.RPCRequestNet;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Method;
@@ -25,7 +26,8 @@ public class RpcClientProxyFactory {
 
     private String serviceAddress;
 
-    public RpcClientProxyFactory() {}
+    public RpcClientProxyFactory() {
+    }
 
     public RpcClientProxyFactory(ServiceDiscovery serviceDiscovery) {
         this.serviceDiscovery = serviceDiscovery;
@@ -37,17 +39,17 @@ public class RpcClientProxyFactory {
     }
 
     @SuppressWarnings("unchecked")
-    public  <T> T create(final Class<?> interfaceClass, final String serviceVersion) {
+    public <T> T create(final Class<?> interfaceClass, final String serviceVersion) {
         // 创建动态代理对象
         return (T) Proxy.newProxyInstance(
                 interfaceClass.getClassLoader(),
                 new Class<?>[]{interfaceClass},
                 (proxy, method, args) -> {
                     // 创建 RPC 请求对象并设置请求属性
-                    RpcRequest request = setRequest(interfaceClass,serviceVersion,method,args);
+                    RpcRequest request = setRequest(interfaceClass, serviceVersion, method, args);
 
                     // 获取 RPC 服务地址
-                    Optional.ofNullable(serviceDiscovery).ifPresent((t)->{
+                    Optional.ofNullable(serviceDiscovery).ifPresent((t) -> {
                         String serviceName = interfaceClass.getName();
                         if (StringUtil.isNotEmpty(serviceVersion)) {
                             serviceName += "-" + serviceVersion;
@@ -60,26 +62,33 @@ public class RpcClientProxyFactory {
                         throw new RuntimeException("server address is empty");
                     }
 
-                    // 创建 RPC 客户端对象并发送 RPC 请求
-                    RpcClient client = new RpcClient(request,serviceAddress);
+                    RPCRequestNet.getInstance().getRequestLockMap().put(request.getRequestId(), request);
 
+                    // 创建 RPC 客户端对象并发送 RPC 请求
                     long time = System.currentTimeMillis();
-                    RpcResponse response = client.send();
+                    RPCRequestNet.getInstance().send(request, serviceAddress);
                     log.info("耗时: {}ms", System.currentTimeMillis() - time);
 
-                    Optional.ofNullable(response).orElseThrow(NullPointerException::new);
+                  //  Thread.sleep(5000);
+                    if (!request.getIsResponse()) {
+                        throw new NullPointerException("response is null");
+                    }
+
+
+                    //移除零时存储
+                    RPCRequestNet.getInstance().getRequestLockMap().remove(request.getRequestId());
 
                     // 返回 RPC 响应结果
-                    if (response.hasException()) {
-                        throw response.getException();
+                    if (request.getResponse().hasException()) {
+                        throw request.getResponse().getException();
                     } else {
-                        return response.getResult();
+                        return request.getResponse().getResult();
                     }
                 });
     }
 
 
-    private RpcRequest setRequest(Class<?> interfaceClass, String serviceVersion, Method method,Object[] args){
+    private RpcRequest setRequest(Class<?> interfaceClass, String serviceVersion, Method method, Object[] args) {
 
         RpcRequest request = new RpcRequest();
         request.setRequestId(UUID.randomUUID().toString());

@@ -44,7 +44,7 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
             response.setException(e);
         }
         // 写入 RPC 响应对象并自动关闭连接
-        ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
+        ctx.writeAndFlush(response);
     }
 
     private Object handle(RpcRequest request) throws Exception {

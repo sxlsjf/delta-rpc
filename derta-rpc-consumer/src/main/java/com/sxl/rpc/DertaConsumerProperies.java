@@ -19,4 +19,8 @@ public class DertaConsumerProperies {
     private String zkAddressDiscover;
 
     private boolean consumer;
+
+    private Integer poolMaxIdle;
+
+    private Integer poolMaxTotal;
 }

@@ -12,6 +12,8 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.sxl.rpc.container.LocalHandlerMap;
+
+import java.util.Date;
 import java.util.Optional;
 
 /**
@@ -68,7 +70,9 @@ public class RpcServer {
             String ip = "127.0.0.1";
             String serviceAddress=ip+":"+port;
             // 启动 RPC 服务器
-            ChannelFuture future = bootstrap.bind(ip, port).sync();
+            ChannelFuture future = bootstrap.bind(ip, port).addListener(future1 ->
+                    System. out.println( future1.isSuccess()?new Date() + ": 端口["+ port + "]绑定成功!":"端口["+ port + "]绑定失败!"))
+                    .sync();
             // 注册 RPC 服务地址
             Optional.ofNullable(serviceRegistry).ifPresent((t)->
                 localHandlerMap.getHandlers().keySet().parallelStream().forEach((s)->{
