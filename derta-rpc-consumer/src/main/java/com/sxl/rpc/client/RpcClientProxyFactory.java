@@ -62,6 +62,7 @@ public class RpcClientProxyFactory {
                         throw new RuntimeException("server address is empty");
                     }
 
+                    //添加锁对象
                     RPCRequestNet.getInstance().getRequestLockMap().put(request.getRequestId(), request);
 
                     // 创建 RPC 客户端对象并发送 RPC 请求
@@ -69,13 +70,11 @@ public class RpcClientProxyFactory {
                     RPCRequestNet.getInstance().send(request, serviceAddress);
                     log.info("耗时: {}ms", System.currentTimeMillis() - time);
 
-                  //  Thread.sleep(5000);
                     if (!request.getIsResponse()) {
                         throw new NullPointerException("response is null");
                     }
 
-
-                    //移除零时存储
+                    //移除锁对象
                     RPCRequestNet.getInstance().getRequestLockMap().remove(request.getRequestId());
 
                     // 返回 RPC 响应结果

@@ -22,7 +22,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
 
         RpcRequest objectLock= (RpcRequest) RPCRequestNet.getInstance().getRequestLockMap().get(rpcResponse.getRequestId());
         if (objectLock!=null) {
-            //TODO 最好用多线程去释放锁
+
             synchronized (objectLock) {
                 //唤醒在该对象锁上wait的线程
                 RpcRequest request = (RpcRequest) RPCRequestNet.getInstance().requestLockMap.get(rpcResponse.getRequestId());

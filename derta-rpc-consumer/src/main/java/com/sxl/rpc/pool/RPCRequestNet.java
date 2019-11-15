@@ -3,7 +3,6 @@ package com.sxl.rpc.pool;
 
 import com.sxl.common.core.bean.RpcRequest;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,7 +10,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Created by wephone on 17-12-27.
+ *
  * 单例RPC请求类 调用端通过此单例进行对提供者端的请求
  * 有些属性需要是全局的例如requestLockMap 所以这里是单例的
  */
@@ -21,10 +20,10 @@ public class RPCRequestNet {
 
 
     //每个ip对应一个连接池
-    public Map<String,ConnectionPool> connectionPoolMap=new ConcurrentHashMap<>();
+    public final Map<String,ConnectionPool> connectionPoolMap=new ConcurrentHashMap<>();
 
     //全局map 每个请求对应的锁 用于同步等待每个异步的RPC请求
-    public Map requestLockMap=new ConcurrentHashMap<String,RpcRequest>();
+    public final Map requestLockMap=new ConcurrentHashMap<String,RpcRequest>();
 
     private static RPCRequestNet instance;
 
@@ -68,13 +67,10 @@ public class RPCRequestNet {
 
             connectionPoolMap.get(ip).releaseChannel(channel);
 
-
-
             System.out.println("调用"+request.getRequestId()+"接收完毕");
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
+        }  catch (Exception e) {
+
             e.printStackTrace();
         }
     }
