@@ -1,10 +1,9 @@
 package com.sxl.rpc.client;
 
 import com.sxl.common.core.bean.RpcRequest;
-import com.sxl.common.core.bean.RpcResponse;
 import com.sxl.common.core.util.StringUtil;
 import com.sxl.common.register.ServiceDiscovery;
-import com.sxl.rpc.pool.RPCRequestNet;
+import com.sxl.rpc.pool.NettyClient;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Method;
@@ -63,11 +62,11 @@ public class RpcClientProxyFactory {
                     }
 
                     //添加锁对象
-                    RPCRequestNet.getInstance().getRequestLockMap().put(request.getRequestId(), request);
+                    NettyClient.getInstance().getRequestLockMap().put(request.getRequestId(), request);
 
                     // 创建 RPC 客户端对象并发送 RPC 请求
                     long time = System.currentTimeMillis();
-                    RPCRequestNet.getInstance().send(request, serviceAddress);
+                    NettyClient.getInstance().send(request, serviceAddress);
                     log.info("耗时: {}ms", System.currentTimeMillis() - time);
 
                     if (!request.getIsResponse()) {
@@ -75,7 +74,7 @@ public class RpcClientProxyFactory {
                     }
 
                     //移除锁对象
-                    RPCRequestNet.getInstance().getRequestLockMap().remove(request.getRequestId());
+                    NettyClient.getInstance().getRequestLockMap().remove(request.getRequestId());
 
                     // 返回 RPC 响应结果
                     if (request.getResponse().hasException()) {

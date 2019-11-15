@@ -16,17 +16,16 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Data
 @Slf4j
-public class RPCRequestNet {
+public class NettyClient {
 
 
     //每个ip对应一个连接池
-    public final Map<String,ConnectionPool> connectionPoolMap=new ConcurrentHashMap<>();
+    public final Map<String,ConnectionPool> connectionPoolMap=new ConcurrentHashMap<>(16);
 
     //全局map 每个请求对应的锁 用于同步等待每个异步的RPC请求
     public final Map requestLockMap=new ConcurrentHashMap<String,RpcRequest>();
 
-    private static RPCRequestNet instance;
-
+    private static NettyClient instance;
 
     //负载均衡获取对应IP 从连接池中获取连接channel
     private Channel connect(String ip) throws Exception {
@@ -41,11 +40,11 @@ public class RPCRequestNet {
     }
 
     //单例模式 避免重复连接 构造方法中进行连接操作
-    public static RPCRequestNet getInstance(){
+    public static NettyClient getInstance(){
         if (instance==null){
-            synchronized (RPCRequestNet.class){
+            synchronized (NettyClient.class){
                 if (instance==null){
-                    instance=new RPCRequestNet();
+                    instance=new NettyClient();
                 }
             }
         }

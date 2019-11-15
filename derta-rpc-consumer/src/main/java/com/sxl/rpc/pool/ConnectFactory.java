@@ -23,6 +23,9 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
     private String ip;
     private Integer port;
 
+    //启动辅助类 用于配置各种参数
+    private Bootstrap bootstrap=new Bootstrap();
+
     //netty线程组 同一个服务的连接池内各个连接共用
     private EventLoopGroup group=new NioEventLoopGroup();
 
@@ -37,11 +40,11 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
 
     @Override
     public Channel create() throws Exception {
-        //启动辅助类 用于配置各种参数
-        Bootstrap b=new Bootstrap();
-        b.group(group)
+
+        bootstrap.group(group)
                 .channel(NioSocketChannel.class)
                 .option(ChannelOption.TCP_NODELAY,true)
+                .option(ChannelOption.SO_KEEPALIVE, true)
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel channel) {
@@ -52,7 +55,7 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
                     }
                 });
 
-        ChannelFuture f=b.connect(ip,port).sync();
+        ChannelFuture f=bootstrap.connect(ip,port).sync();
 
         System.out.println("pool create channel "+ip+":"+port);
 
