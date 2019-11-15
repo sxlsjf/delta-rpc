@@ -4,17 +4,19 @@ import com.sxl.common.core.bean.RpcRequest;
 import com.sxl.common.core.bean.RpcResponse;
 import com.sxl.common.core.util.StringUtil;
 import com.sxl.common.register.ServiceDiscovery;
+import com.sxl.rpc.pool.RPCRequestNet;
 import lombok.extern.slf4j.Slf4j;
-import java.lang.reflect.InvocationHandler;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
  * @Author: shenxl
  * @Date: 2019/9/29 14:35
  * @Version 1.0
- * @description：${description}
+ * @description
  */
 @Slf4j
 public class RpcClientProxyFactory {
@@ -22,7 +24,10 @@ public class RpcClientProxyFactory {
 
     private ServiceDiscovery serviceDiscovery;
 
-    public RpcClientProxyFactory() {}
+    private String serviceAddress;
+
+    public RpcClientProxyFactory() {
+    }
 
     public RpcClientProxyFactory(ServiceDiscovery serviceDiscovery) {
         this.serviceDiscovery = serviceDiscovery;

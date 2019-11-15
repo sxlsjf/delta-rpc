@@ -58,7 +58,9 @@ public class RPCRequestNet {
         try {
 
             Channel channel=connect(ip);
+            //这行代码会阻塞吗
             channel.writeAndFlush(request).sync();
+
             //挂起等待实现端处理完毕返回
             synchronized (request) {
                 //放弃对象锁 并阻塞等待notify

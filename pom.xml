@@ -14,6 +14,8 @@
         <module>derta-rpc-common</module>
         <module>sample-api</module>
         <module>derta-rpc-autoconfiration</module>
+        <module>test-provider</module>
+        <module>test-consumer</module>
     </modules>
 
     <properties>
@@ -32,10 +34,17 @@
         <version.maven-surefire-plugin>2.18.1</version.maven-surefire-plugin>
         <version.maven-source-plugin>2.4</version.maven-source-plugin>
         <version.maven-javadoc-plugin>2.10.3</version.maven-javadoc-plugin>
+        <version.spring-boot>2.1.9</version.spring-boot>
+
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.1.9.RELEASE</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
