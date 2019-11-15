@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConditionalOnClass(RpcReference.class)
 @EnableConfigurationProperties(DertaConsumerProperies.class)
-//@ConditionalOnProperty(prefix = "spring.derta", name = "consumer", havingValue = "true")
+@ConditionalOnProperty(prefix = "spring.derta", name = "consumer", havingValue = "true")
 public class DertaConsumerAutoConfiguration {
 
     @Autowired

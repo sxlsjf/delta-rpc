@@ -5,3 +5,6 @@ org.sxl.rpc.DertaProviderAutoConfiguration
 org.springframework.context.ApplicationListener=\
 org.sxl.rpc.listener.RpcServerActionListener
 
+
+#org.springframework.context.ApplicationListener=\
+#org.sxl.rpc.listener.RpcListener

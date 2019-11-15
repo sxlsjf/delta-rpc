@@ -2,6 +2,7 @@ package com.sxl.sample.test.provider.service;
 
 import com.api.test.service.Myservice;
 
+import org.sxl.rpc.ann.DeltaService;
 import org.sxl.rpc.ann.RpcService;
 
 /**
@@ -11,9 +12,10 @@ import org.sxl.rpc.ann.RpcService;
  * @description：${description}
  */
 
-@RpcService(value = Myservice.class,version = "1.0.0")
+@DeltaService(value = Myservice.class,version = "1.0.0")
 public class MyServiceImpl implements Myservice {
-    @Override
+
+
     public String sayHello(String say) {
 
         System.out.println("hello"+say+"========================================================================================");

@@ -17,10 +17,10 @@ import java.util.Date;
 import java.util.Optional;
 
 /**
- * @Author: shenxl
- * @Date: 2019/9/30 14:32
- * @Version 1.0
- * @description：RPC 服务器（用于发布 RPC 服务）
+ * RPC 服务器（用于发布 RPC 服务）
+ *
+ * @author huangyong
+ * @since 1.0.0
  */
 @Slf4j
 public class RpcServer {
@@ -41,7 +41,6 @@ public class RpcServer {
     public void action() {
 
         log.info("另起一个rpc服务线程...");
-
         new Thread(this::startServer).start();
 
     }

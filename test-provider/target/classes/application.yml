@@ -1,4 +1,5 @@
 spring:
   derta:
     zk-address-register: 127.0.0.1:2181
-    server-port: 40888
+    server-port: 40880
+    provider: true
