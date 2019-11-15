@@ -6,5 +6,5 @@ server:
 spring:
   derta:
     zk-address-discover: 127.0.0.1:2181
-    consumer: false
+    consumer: true
 

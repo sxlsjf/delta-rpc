@@ -2,6 +2,8 @@ package com.sxl.sample.test.consumer.controller;
 
 import com.api.test.service.Myservice;
 import com.sxl.rpc.annoation.RpcReference;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 /**
