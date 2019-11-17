@@ -20,12 +20,12 @@ public class ClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, RpcResponse rpcResponse) {
 
-        RpcRequest objectLock= (RpcRequest) NettyClient.getInstance().getRequestLockMap().get(rpcResponse.getRequestId());
+        RpcRequest objectLock=  NettyClient.getInstance().getRequestLockMap().get(rpcResponse.getRequestId());
         if (objectLock!=null) {
 
             synchronized (objectLock) {
                 //唤醒在该对象锁上wait的线程
-                RpcRequest request = (RpcRequest) NettyClient.getInstance().requestLockMap.get(rpcResponse.getRequestId());
+                RpcRequest request = NettyClient.getInstance().requestLockMap.get(rpcResponse.getRequestId());
                 //标记该调用方法是否已返回 未标记但锁释放说明调用超时
                 request.setResponse(rpcResponse);
                 request.notifyAll();

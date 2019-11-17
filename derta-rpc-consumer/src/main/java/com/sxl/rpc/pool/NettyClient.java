@@ -23,7 +23,7 @@ public class NettyClient {
     public final Map<String,ConnectionPool> connectionPoolMap=new ConcurrentHashMap<>(16);
 
     //全局map 每个请求对应的锁 用于同步等待每个异步的RPC请求
-    public final Map requestLockMap=new ConcurrentHashMap<String,RpcRequest>();
+    public final Map<String,RpcRequest> requestLockMap=new ConcurrentHashMap<>();
 
     private static NettyClient instance;
 
@@ -57,7 +57,6 @@ public class NettyClient {
         try {
 
             Channel channel=connect(ip);
-            //这行代码会阻塞吗
             channel.writeAndFlush(request).sync();
 
             //挂起等待实现端处理完毕返回
@@ -65,13 +64,10 @@ public class NettyClient {
                 //放弃对象锁 并阻塞等待notify
                 request.wait();
             }
-
             connectionPoolMap.get(ip).releaseChannel(channel);
-
-            System.out.println("调用"+request.getRequestId()+"接收完毕");
+            log.info("调用"+request.getRequestId()+"接收完毕");
 
         }  catch (Exception e) {
-
             e.printStackTrace();
         }
     }
