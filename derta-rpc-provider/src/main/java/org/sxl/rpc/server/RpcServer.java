@@ -41,7 +41,6 @@ public class RpcServer {
     public void action() {
 
         log.info("另起一个rpc服务线程...");
-
         new Thread(this::startServer).start();
 
     }
@@ -66,19 +65,10 @@ public class RpcServer {
                         }
                     });
 
-            //String ip = InetAddress.getLocalHost().getHostAddress();
-            String ip = "127.0.0.1";
-            String serviceAddress = ip + ":" + port;
             // 启动 RPC 服务器
-            ChannelFuture future = bootstrap.bind(ip, port).addListener(future1 ->
+            ChannelFuture future = bootstrap.bind(port).addListener(future1 ->
                     System.out.println(future1.isSuccess() ? new Date() + ": 端口[" + port + "]绑定成功!" : "端口[" + port + "]绑定失败!"))
                     .sync();
-            // 注册 RPC 服务地址
-            Optional.ofNullable(serviceRegistry).ifPresent((t) ->
-                    localHandlerMap.getHandlers().keySet().parallelStream().forEach((s) -> {
-                        t.register(s, serviceAddress);
-                        log.info("注册：register service: {} => {}", s, serviceAddress);
-                    }));
 
             log.info("服务已启动：server started on port {}", port);
             // 同步等待服务端监听端口关闭 后面改用闭锁来阻塞提供者端

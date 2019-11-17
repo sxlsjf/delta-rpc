@@ -24,7 +24,7 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
     private Integer port;
 
     //启动辅助类 用于配置各种参数
-    private Bootstrap bootstrap;
+    private Bootstrap bootstrap = new Bootstrap();
 
     //netty线程组 同一个服务的连接池内各个连接共用
     private EventLoopGroup group=new NioEventLoopGroup();
@@ -40,8 +40,6 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
 
     @Override
     public Channel create() throws Exception {
-
-        bootstrap = new Bootstrap();
 
         bootstrap.group(group)
                 .channel(NioSocketChannel.class)
