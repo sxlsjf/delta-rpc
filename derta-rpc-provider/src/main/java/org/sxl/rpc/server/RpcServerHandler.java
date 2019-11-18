@@ -3,7 +3,6 @@ package org.sxl.rpc.server;
 import com.sxl.common.core.bean.RpcRequest;
 import com.sxl.common.core.bean.RpcResponse;
 import com.sxl.common.core.util.StringUtil;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 import io.netty.channel.ChannelHandlerContext;
@@ -43,7 +42,7 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
             log.error("handle result failure", e);
             response.setException(e);
         }
-        // 写入 RPC 响应对象并自动关闭连接
+        // 写入 RPC 响应对象
         ctx.writeAndFlush(response);
     }
 

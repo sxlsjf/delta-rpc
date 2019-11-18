@@ -10,9 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import org.sxl.rpc.ann.DeltaService;
-
 import org.sxl.rpc.container.LocalHandlerMap;
-
 import org.sxl.rpc.post.ParseRpcServiceAnn;
 import org.sxl.rpc.server.RpcServer;
 
@@ -45,9 +43,9 @@ public class DertaProviderAutoConfiguration {
         return new LocalHandlerMap();
     }
     @Bean
-    public RpcServer rpcServer(LocalHandlerMap localHandlerMap,ZooKeeperServiceRegistry serviceRegistry){
+    public RpcServer rpcServer(LocalHandlerMap localHandlerMap){
 
-        return new RpcServer(localHandlerMap,dertaProperties.getServerPort(),serviceRegistry);
+        return new RpcServer(localHandlerMap,dertaProperties.getServerPort());
     }
 
     @Bean

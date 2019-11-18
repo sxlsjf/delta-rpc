@@ -47,6 +47,7 @@ public class StartServerEventListener implements ApplicationListener<Application
                     log.info("注册：register service: {} => {}", s, serviceAddress);
                 }));
 
+        //启动rpc
         applicationContext.getBean(RpcServer.class).action();
     }
 

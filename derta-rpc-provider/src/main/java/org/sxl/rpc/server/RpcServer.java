@@ -4,7 +4,6 @@ import com.sxl.common.core.bean.RpcRequest;
 import com.sxl.common.core.bean.RpcResponse;
 import com.sxl.common.core.coder.RpcDecoder;
 import com.sxl.common.core.coder.RpcEncoder;
-import com.sxl.common.register.zookeeper.ZooKeeperServiceRegistry;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -12,9 +11,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.sxl.rpc.container.LocalHandlerMap;
-
 import java.util.Date;
-import java.util.Optional;
 
 /**
  * @Author: shenxl
@@ -25,14 +22,14 @@ import java.util.Optional;
 @Slf4j
 public class RpcServer {
 
-    private ZooKeeperServiceRegistry serviceRegistry;
+
 
     private Integer port;
 
     private final LocalHandlerMap localHandlerMap;
 
-    public RpcServer(LocalHandlerMap localHandlerMap, Integer port, ZooKeeperServiceRegistry serviceRegistry) {
-        this.serviceRegistry = serviceRegistry;
+    public RpcServer(LocalHandlerMap localHandlerMap, Integer port) {
+
         this.localHandlerMap = localHandlerMap;
         this.port = port;
     }
@@ -46,7 +43,7 @@ public class RpcServer {
     }
 
     private void startServer() {
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             // 创建并初始化 Netty 服务端 Bootstrap 对象
