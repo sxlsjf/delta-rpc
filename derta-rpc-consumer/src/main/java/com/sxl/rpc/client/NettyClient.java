@@ -22,13 +22,13 @@ public class NettyClient {
 
 
     //每个ip对应一个连接池
-    public final Map<String, ConnectionPool> connectionPoolMap=new ConcurrentHashMap<>(16);
+    private final Map<String, ConnectionPool> connectionPoolMap=new ConcurrentHashMap<>(16);
 
-    //全局map 每个请求对应的锁 用于同步等待每个异步的RPC请求
-    public final Map<String,RpcRequest> requestLockMap=new ConcurrentHashMap<>();
+    //全局map 每个请求对应的锁 用于同步等待每个异步的RPC请求,暂且用不到
+    private final Map<String,RpcRequest> requestLockMap=new ConcurrentHashMap<>();
 
     //每个请求对应一个Future
-    private ConcurrentHashMap<String, RPCFuture> pendingRPC = new ConcurrentHashMap<>();
+    private final Map<String, RPCFuture> pendingRPC = new ConcurrentHashMap<>();
 
     private static NettyClient instance;
 

@@ -4,7 +4,7 @@ server:
     context-path: /rpc
 
 spring:
-  derta:
+  delta:
     zk-address-discover: 127.0.0.1:2181
     consumer: true
 

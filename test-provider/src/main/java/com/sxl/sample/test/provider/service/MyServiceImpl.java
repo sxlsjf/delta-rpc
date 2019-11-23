@@ -22,9 +22,9 @@ public class MyServiceImpl implements MyService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("hello"+say+"========================================================================================");
+        System.out.println("同步调用"+say+"========================================================================================");
 
-        return "rpc调用成功";
+        return "同步rpc调用成功";
 
     }
 }

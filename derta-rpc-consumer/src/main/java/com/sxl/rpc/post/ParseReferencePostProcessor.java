@@ -44,8 +44,8 @@ public class ParseReferencePostProcessor implements BeanPostProcessor {
 
             Optional.ofNullable(reference).ifPresent((t) -> {
                 Object objProxy;
-                if (reference.asyn() == true && field.getType().equals(IAsyncProxyObject.class)) {
-                    objProxy = factory.createAsyn(reference.interfaceClass(), reference.version());
+                if (reference.async() == true && field.getType().equals(IAsyncProxyObject.class)) {
+                    objProxy = factory.createAsync(reference.interfaceClass(), reference.version());
                 } else {
                     objProxy = factory.create(field.getType(), reference.version());
                 }

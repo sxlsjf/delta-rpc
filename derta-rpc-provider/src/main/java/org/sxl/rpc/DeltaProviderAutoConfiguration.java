@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 import org.sxl.rpc.ann.DeltaService;
 import org.sxl.rpc.container.LocalHandlerMap;
 import org.sxl.rpc.post.ParseRpcServiceAnn;
-import org.sxl.rpc.server.RpcServer;
 
 /**
  * @Author: shenxl
@@ -23,18 +22,18 @@ import org.sxl.rpc.server.RpcServer;
 
 @Configuration
 @ConditionalOnClass(DeltaService.class)
-@EnableConfigurationProperties(DertaProviderProperties.class)
-@ConditionalOnProperty(prefix = "spring.derta", name = "provider", havingValue = "true")
-public class DertaProviderAutoConfiguration {
+@EnableConfigurationProperties(DeltaProviderProperties.class)
+@ConditionalOnProperty(prefix = "spring.delta", name = "provider", havingValue = "true")
+public class DeltaProviderAutoConfiguration {
 
 
     @Autowired
-    private DertaProviderProperties dertaProperties;
+    private DeltaProviderProperties deltaProperties;
 
     @Bean
     public ZooKeeperServiceRegistry zooKeeperServiceRegistry(){
 
-        return new ZooKeeperServiceRegistry(dertaProperties.getZkAddressRegister());
+        return new ZooKeeperServiceRegistry(deltaProperties.getZkAddressRegister());
     }
 
     @Bean

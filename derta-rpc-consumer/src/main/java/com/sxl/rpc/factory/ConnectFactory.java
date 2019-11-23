@@ -24,10 +24,10 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
     private Integer port;
 
     //启动辅助类 用于配置各种参数
-    private Bootstrap bootstrap = new Bootstrap();
+    private final Bootstrap bootstrap = new Bootstrap();
 
     //netty线程组 同一个服务的连接池内各个连接共用
-    private EventLoopGroup group=new NioEventLoopGroup();
+    private final EventLoopGroup group=new NioEventLoopGroup();
 
     public ConnectFactory(String ip, Integer port) {
         this.ip = ip;

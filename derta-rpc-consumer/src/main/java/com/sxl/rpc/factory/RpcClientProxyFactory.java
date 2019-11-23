@@ -22,7 +22,7 @@ public class RpcClientProxyFactory {
     public RpcClientProxyFactory() {
     }
 
-    public RpcClientProxyFactory(ServiceDiscovery serviceDiscovery) {
+    public RpcClientProxyFactory(final ServiceDiscovery serviceDiscovery) {
         this.serviceDiscovery = serviceDiscovery;
     }
 
@@ -41,7 +41,7 @@ public class RpcClientProxyFactory {
     }
 
     @SuppressWarnings("unchecked")
-    public <T> IAsyncProxyObject<T> createAsyn(final Class<T> interfaceClass, final String serviceVersion) {
+    public <T> IAsyncProxyObject<T> createAsync(final Class<T> interfaceClass, final String serviceVersion) {
         return new AsyncProxyObject(interfaceClass,serviceVersion,serviceDiscovery);
     }
 

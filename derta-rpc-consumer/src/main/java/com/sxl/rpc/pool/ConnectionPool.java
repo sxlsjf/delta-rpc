@@ -42,7 +42,7 @@ public class ConnectionPool {
         ((ConnectFactory) pool.getFactory()).getGroup().shutdownGracefully();
         pool.close();
         //移除引用
-        NettyClient.getInstance().connectionPoolMap.remove(fullIp);
+        NettyClient.getInstance().getConnectionPoolMap().remove(fullIp);
     }
 
 }

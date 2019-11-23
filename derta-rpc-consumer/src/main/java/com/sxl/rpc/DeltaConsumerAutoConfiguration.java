@@ -20,17 +20,17 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnClass(RpcReference.class)
-@EnableConfigurationProperties(DertaConsumerProperies.class)
-@ConditionalOnProperty(prefix = "spring.derta", name = "consumer", havingValue = "true")
-public class DertaConsumerAutoConfiguration {
+@EnableConfigurationProperties(DeltaConsumerProperties.class)
+@ConditionalOnProperty(prefix = "spring.delta", name = "consumer", havingValue = "true")
+public class DeltaConsumerAutoConfiguration {
 
     @Autowired
-    private DertaConsumerProperies dertaConsumerProperies;
+    private DeltaConsumerProperties deltaConsumerProperties;
 
     @Bean
     public ZooKeeperServiceDiscovery zooKeeperServiceDiscovery(){
 
-        return new ZooKeeperServiceDiscovery(dertaConsumerProperies.getZkAddressDiscover());
+        return new ZooKeeperServiceDiscovery(deltaConsumerProperties.getZkAddressDiscover());
     }
 
     @Bean

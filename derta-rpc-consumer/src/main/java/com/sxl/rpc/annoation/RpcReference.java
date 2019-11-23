@@ -24,7 +24,7 @@ public @interface RpcReference {
 
     String group() default "";
 
-    boolean asyn() default true;
+    boolean async() default true;
 
 
 }

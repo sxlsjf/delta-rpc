@@ -20,8 +20,8 @@ public class AsynServiceImpl implements AsyncService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("AsynServiceImpl.asycHello()"+say);
+        System.out.println("异步调用"+say+"=========================================");
 
-        return say;
+        return "异步调用rpc成功";
     }
 }

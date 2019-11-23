@@ -10,8 +10,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @description：${description}
  */
 @Data
-@ConfigurationProperties(prefix = "spring.derta")
-public class DertaProviderProperties {
+@ConfigurationProperties(prefix = "spring.delta")
+public class DeltaProviderProperties {
 
     /**
      *zk注册地址

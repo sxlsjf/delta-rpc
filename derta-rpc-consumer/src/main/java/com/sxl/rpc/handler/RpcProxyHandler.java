@@ -18,7 +18,6 @@ import java.lang.reflect.Method;
  * @description：${description}
  */
 @Slf4j
-@Data
 public class RpcProxyHandler<T> extends AbstractProxyObject<T> implements InvocationHandler {
 
 
@@ -38,9 +37,10 @@ public class RpcProxyHandler<T> extends AbstractProxyObject<T> implements Invoca
         // 创建 RPC 客户端对象并发送 RPC 请求
         long time = System.currentTimeMillis();
         RPCFuture rpcFuture=NettyClient.getInstance().send(request, ipAddress);
+        Object result=rpcFuture.get();
         log.info("同步调用耗时: {}ms", System.currentTimeMillis() - time);
 
-        return rpcFuture.get();
+        return result;
     }
 
 

@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
-import org.sxl.rpc.DertaProviderProperties;
+import org.sxl.rpc.DeltaProviderProperties;
 import org.sxl.rpc.container.LocalHandlerMap;
 import org.sxl.rpc.server.RpcServer;
 
@@ -36,7 +36,7 @@ public class StartServerEventListener implements ApplicationListener<Application
         //String ip = InetAddress.getLocalHost().getHostAddress();
         String ip = "127.0.0.1";
 
-        Integer port=applicationContext.getBean(DertaProviderProperties.class).getServerPort();
+        Integer port=applicationContext.getBean(DeltaProviderProperties.class).getServerPort();
 
         String  serviceAddress=ip+":"+port;
 
