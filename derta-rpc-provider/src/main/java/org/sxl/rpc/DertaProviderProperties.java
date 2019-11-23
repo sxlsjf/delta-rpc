@@ -23,6 +23,9 @@ public class DertaProviderProperties {
      */
     private Integer serverPort;
 
+    /**
+     *是否开启服务端
+     */
     private boolean provider;
 
 }

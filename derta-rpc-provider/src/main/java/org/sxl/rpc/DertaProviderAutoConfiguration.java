@@ -42,11 +42,6 @@ public class DertaProviderAutoConfiguration {
 
         return new LocalHandlerMap();
     }
-    @Bean
-    public RpcServer rpcServer(LocalHandlerMap localHandlerMap){
-
-        return new RpcServer(localHandlerMap,dertaProperties.getServerPort());
-    }
 
     @Bean
     public ParseRpcServiceAnn parseRpcServiceAnn(LocalHandlerMap localHandlerMap){

@@ -1,7 +1,9 @@
-package com.sxl.rpc.pool;
+package com.sxl.rpc.client;
 
 
 import com.sxl.common.core.bean.RpcRequest;
+import com.sxl.rpc.future.RPCFuture;
+import com.sxl.rpc.pool.ConnectionPool;
 import io.netty.channel.Channel;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -20,10 +22,13 @@ public class NettyClient {
 
 
     //每个ip对应一个连接池
-    public final Map<String,ConnectionPool> connectionPoolMap=new ConcurrentHashMap<>(16);
+    public final Map<String, ConnectionPool> connectionPoolMap=new ConcurrentHashMap<>(16);
 
     //全局map 每个请求对应的锁 用于同步等待每个异步的RPC请求
     public final Map<String,RpcRequest> requestLockMap=new ConcurrentHashMap<>();
+
+    //每个请求对应一个Future
+    private ConcurrentHashMap<String, RPCFuture> pendingRPC = new ConcurrentHashMap<>();
 
     private static NettyClient instance;
 
@@ -52,24 +57,29 @@ public class NettyClient {
     }
 
     //向实现端发送请求
-    public void send(RpcRequest request,String ip) {
+    public RPCFuture send(RpcRequest request,String ip) {
+
+        RPCFuture rpcFuture = new RPCFuture(request);
 
         try {
 
+            //从连接池获取链接
             Channel channel=connect(ip);
-            channel.writeAndFlush(request).sync();
+            //将一个RPCFuture对象放入全局上下文中
+            pendingRPC.put(request.getRequestId(), rpcFuture);
 
-            //挂起等待实现端处理完毕返回
-            synchronized (request) {
-                //放弃对象锁 并阻塞等待notify
-                request.wait();
-            }
+            //将请求信息发送出去
+            channel.writeAndFlush(request).sync();
+            //释放连接到连接池中
             connectionPoolMap.get(ip).releaseChannel(channel);
+
             log.info("调用"+request.getRequestId()+"接收完毕");
 
         }  catch (Exception e) {
             e.printStackTrace();
         }
+
+        return rpcFuture;
     }
 
 

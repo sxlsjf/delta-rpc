@@ -20,9 +20,7 @@ import java.util.Date;
  * @description：RPC 服务器（用于发布 RPC 服务）
  */
 @Slf4j
-public class RpcServer {
-
-
+public final class RpcServer extends Thread{
 
     private Integer port;
 
@@ -35,14 +33,8 @@ public class RpcServer {
     }
 
 
-    public void action() {
-
-        log.info("另起一个rpc服务线程...");
-        new Thread(this::startServer).start();
-
-    }
-
-    private void startServer() {
+    @Override
+    public void run() {
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {

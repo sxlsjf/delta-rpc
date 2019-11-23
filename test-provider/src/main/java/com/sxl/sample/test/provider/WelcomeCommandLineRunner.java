@@ -14,7 +14,7 @@ public class WelcomeCommandLineRunner implements CommandLineRunner {
 
 
     public void run(String... args) throws Exception {
-        System.out.println("***** WELCOME TO THE DEMO *****");
+        System.out.println("***** WELCOME TO THE DEMO FOR DELTA_RPC*****");
     }
 
 }

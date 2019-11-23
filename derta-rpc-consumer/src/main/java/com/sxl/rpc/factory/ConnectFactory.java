@@ -1,10 +1,10 @@
-package com.sxl.rpc.pool;
+package com.sxl.rpc.factory;
 
 import com.sxl.common.core.bean.RpcRequest;
 import com.sxl.common.core.bean.RpcResponse;
 import com.sxl.common.core.coder.RpcDecoder;
 import com.sxl.common.core.coder.RpcEncoder;
-import com.sxl.rpc.client.ClientHandler;
+import com.sxl.rpc.handler.RpcClientHandler;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -51,7 +51,7 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
                         ChannelPipeline pipeline = channel.pipeline();
                         pipeline.addLast(new RpcEncoder(RpcRequest.class)); // 编码 RPC 请求
                         pipeline.addLast(new RpcDecoder(RpcResponse.class)); // 解码 RPC 响应
-                        pipeline.addLast(new ClientHandler()); // 处理 RPC 响应
+                        pipeline.addLast(new RpcClientHandler()); // 处理 RPC 响应
                     }
                 });
 

@@ -2,15 +2,15 @@ package org.sxl.rpc.server;
 
 import com.sxl.common.core.bean.RpcRequest;
 import com.sxl.common.core.bean.RpcResponse;
-import com.sxl.common.core.util.StringUtil;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 import io.netty.channel.ChannelHandlerContext;
-import net.sf.cglib.reflect.FastClass;
-import net.sf.cglib.reflect.FastMethod;
-import org.sxl.rpc.container.LocalHandlerMap;
 
-import java.util.Optional;
+import org.sxl.rpc.container.LocalHandlerMap;
+import org.sxl.rpc.utils.InvokeServiceUtil;
+
 
 
 /**
@@ -28,14 +28,14 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
         this.localHandlerMap= localHandlerMap;
     }
 
-    private String serviceName;
+
     @Override
     public void channelRead0(final ChannelHandlerContext ctx, RpcRequest request)  {
         // 创建并初始化 RPC 响应对象
         RpcResponse response = new RpcResponse();
         response.setRequestId(request.getRequestId());
         try {
-            Object result = handle(request);
+            Object result = InvokeServiceUtil.invoke(request,localHandlerMap);
             response.setResult(result);
             response.setSuccess(true);
         } catch (Exception e) {
@@ -43,31 +43,10 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
             response.setException(e);
         }
         // 写入 RPC 响应对象
-        ctx.writeAndFlush(response);
+        ctx.writeAndFlush(response).addListener((ChannelFutureListener) channelFuture ->
+                System.out.println("Send response for request " + request.getRequestId()));
     }
 
-    private Object handle(RpcRequest request) throws Exception {
-        // 获取服务对象
-        serviceName = request.getInterfaceName();
-        String serviceVersion = request.getServiceVersion();
-        if (StringUtil.isNotEmpty(serviceVersion)) {
-            serviceName += "-" + serviceVersion;
-        }
-        Object serviceBean = localHandlerMap.getHandlers().get(serviceName);
-
-        Optional.ofNullable(serviceBean).orElseThrow(()->
-                new RuntimeException(String.format("can not find service bean by key: %s",serviceName)));
-
-        // 获取反射调用所需的参数
-        Class<?> serviceClass = serviceBean.getClass();
-        String methodName = request.getMethodName();
-        Class<?>[] parameterTypes = request.getParameterTypes();
-        Object[] parameters = request.getParameters();
-        // 使用 CGLib 执行反射调用
-        FastClass serviceFastClass = FastClass.create(serviceClass);
-        FastMethod serviceFastMethod = serviceFastClass.getMethod(methodName, parameterTypes);
-        return serviceFastMethod.invoke(serviceBean, parameters);
-    }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {

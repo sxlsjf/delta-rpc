@@ -2,7 +2,6 @@ package org.sxl.rpc.listener;
 
 import com.sxl.common.register.zookeeper.ZooKeeperServiceRegistry;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
@@ -10,7 +9,6 @@ import org.sxl.rpc.DertaProviderProperties;
 import org.sxl.rpc.container.LocalHandlerMap;
 import org.sxl.rpc.server.RpcServer;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 
@@ -38,7 +36,9 @@ public class StartServerEventListener implements ApplicationListener<Application
         //String ip = InetAddress.getLocalHost().getHostAddress();
         String ip = "127.0.0.1";
 
-        String  serviceAddress=ip+":"+applicationContext.getBean(DertaProviderProperties.class).getServerPort();
+        Integer port=applicationContext.getBean(DertaProviderProperties.class).getServerPort();
+
+        String  serviceAddress=ip+":"+port;
 
         // 注册 RPC 服务地址
         Optional.of(zkRegister).ifPresent((t) ->
@@ -48,7 +48,9 @@ public class StartServerEventListener implements ApplicationListener<Application
                 }));
 
         //启动rpc
-        applicationContext.getBean(RpcServer.class).action();
+
+
+        new RpcServer(localHandlerMap,port).start();
     }
 
 }

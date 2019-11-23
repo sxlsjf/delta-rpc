@@ -9,7 +9,7 @@ import lombok.Data;
  * @description：${description}
  */
 @Data
-public class RpcResponse {
+public class RpcResponse<V> {
 
     /**
      *
@@ -23,7 +23,7 @@ public class RpcResponse {
     /**
      * 返回结果
      * */
-    private Object result;
+    private V result;
 
     private boolean success;
 
