@@ -125,12 +125,12 @@ public class RPCFuture<V> implements Future<V> {
         return this;
     }
 
-    public RPCFuture success(SuccessAsyn callback) {
+    public RPCFuture success(SuccessAsync callback) {
         addCallBack(callback);
         return this;
     }
 
-    public RPCFuture fail(FailAsyn callback) {
+    public RPCFuture fail(FailAsync callback) {
         addCallBack(callback);
         return this;
     }
@@ -138,13 +138,13 @@ public class RPCFuture<V> implements Future<V> {
     private void runCallback(final AsyncRpcCallback callback) {
         final RpcResponse res = this.response;
         ASYNC_POOL.execute(() -> {
-            if (callback instanceof SuccessAsyn) {
+            if (callback instanceof SuccessAsync) {
 
-                ((SuccessAsyn) callback).success(res.getResult());
+                ((SuccessAsync) callback).success(res.getResult());
 
             } else {
                 if(response.hasException()){
-                    ((FailAsyn) callback).fail(new RuntimeException("Response error", new Throwable(res.getException())));
+                    ((FailAsync) callback).fail(new RuntimeException("Response error", new Throwable(res.getException())));
                 }
             }
         });

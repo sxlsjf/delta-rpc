@@ -19,10 +19,10 @@ import java.lang.reflect.Method;
  */
 @Slf4j
 @Data
-public class RpcProxyHandler extends AbstractProxyObject implements InvocationHandler {
+public class RpcProxyHandler<T> extends AbstractProxyObject<T> implements InvocationHandler {
 
 
-    public RpcProxyHandler(final Class<?> interfaceClass, final String serviceVersion, final ServiceDiscovery serviceDiscovery){
+    public RpcProxyHandler(final Class<T> interfaceClass, final String serviceVersion, final ServiceDiscovery serviceDiscovery){
       super(interfaceClass,serviceVersion,serviceDiscovery);
     }
 

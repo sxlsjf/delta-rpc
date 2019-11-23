@@ -18,16 +18,16 @@ import java.util.List;
  * @description
  */
 @Slf4j
-public class AysnProxyObject<T> extends AbstractProxyObject implements IAsyncProxyObject {
+public class AsyncProxyObject<T> extends AbstractProxyObject<T> implements IAsyncProxyObject<T> {
 
     private  final List<String> methods=new ArrayList<>();
 
-    public AysnProxyObject(final Class<T> interfaceClass, final String serviceVersion, final ServiceDiscovery serviceDiscovery){
+    public AsyncProxyObject(final Class<T> interfaceClass, final String serviceVersion, final ServiceDiscovery serviceDiscovery){
         super(interfaceClass,serviceVersion,serviceDiscovery);
 
-        Method[] methodlist=interfaceClass.getDeclaredMethods();
+        Method[] declaredMethods=interfaceClass.getDeclaredMethods();
 
-        for(Method method:methodlist){
+        for(Method method:declaredMethods){
             methods.add(method.getName());
         }
     }

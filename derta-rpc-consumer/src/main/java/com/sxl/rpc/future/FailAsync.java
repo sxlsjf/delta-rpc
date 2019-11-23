@@ -2,12 +2,13 @@ package com.sxl.rpc.future;
 
 /**
  * @Author: shenxl
- * @Date: 2019/11/22 14:46
+ * @Date: 2019/11/22 14:47
  * @Version 1.0
  * @description：${description}
  */
 @FunctionalInterface
-public interface SuccessAsyn<V> extends AsyncRpcCallback{
+public interface FailAsync<E extends Throwable> extends AsyncRpcCallback {
 
-    void success(V result);
+    void fail(E e);
+
 }

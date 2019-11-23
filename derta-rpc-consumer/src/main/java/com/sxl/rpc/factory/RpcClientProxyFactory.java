@@ -1,7 +1,7 @@
 package com.sxl.rpc.factory;
 
 import com.sxl.common.register.ServiceDiscovery;
-import com.sxl.rpc.handler.AysnProxyObject;
+import com.sxl.rpc.handler.AsyncProxyObject;
 import com.sxl.rpc.handler.IAsyncProxyObject;
 import com.sxl.rpc.handler.RpcProxyHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +42,7 @@ public class RpcClientProxyFactory {
 
     @SuppressWarnings("unchecked")
     public <T> IAsyncProxyObject<T> createAsyn(final Class<T> interfaceClass, final String serviceVersion) {
-        return new AysnProxyObject(interfaceClass,serviceVersion,serviceDiscovery);
+        return new AsyncProxyObject(interfaceClass,serviceVersion,serviceDiscovery);
     }
 
 }

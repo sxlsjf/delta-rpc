@@ -1,9 +1,8 @@
 package com.sxl.sample.test.provider.service;
 
-import com.api.test.service.Myservice;
+import com.api.test.service.MyService;
 
 import org.sxl.rpc.ann.DeltaService;
-import org.sxl.rpc.ann.RpcService;
 
 /**
  * @Author: shenxl
@@ -12,8 +11,8 @@ import org.sxl.rpc.ann.RpcService;
  * @description：${description}
  */
 
-@DeltaService(value = Myservice.class,version = "1.0.0")
-public class MyServiceImpl implements Myservice {
+@DeltaService(value = MyService.class,version = "1.0.0")
+public class MyServiceImpl implements MyService {
 
 
     public String sayHello(String say) {

@@ -1,12 +1,15 @@
 package com.api.test.service;
 
+
 /**
  * @Author: shenxl
- * @Date: 2019/10/10 17:36
+ * @Date: 2019/11/22 16:10
  * @Version 1.0
  * @description：${description}
  */
-public interface Myservice {
 
-    String sayHello(String say);
+public interface AsyncService {
+
+    String asyncHello(String say);
+
 }

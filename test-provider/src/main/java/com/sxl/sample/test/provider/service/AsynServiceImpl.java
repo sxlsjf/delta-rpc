@@ -1,6 +1,6 @@
 package com.sxl.sample.test.provider.service;
 
-import com.api.test.service.AsynService;
+import com.api.test.service.AsyncService;
 import org.sxl.rpc.ann.DeltaService;
 
 /**
@@ -11,8 +11,8 @@ import org.sxl.rpc.ann.DeltaService;
  */
 
 
-@DeltaService(value = AsynService.class,version = "1.0.0")
-public class AsynServiceImpl implements AsynService {
+@DeltaService(value = AsyncService.class,version = "1.0.0")
+public class AsynServiceImpl implements AsyncService {
     public String asycHello(String say) {
         try {
             Thread.sleep(5000);
