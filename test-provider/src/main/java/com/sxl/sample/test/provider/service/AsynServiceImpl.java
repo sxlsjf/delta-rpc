@@ -13,7 +13,8 @@ import org.sxl.rpc.ann.DeltaService;
 
 @DeltaService(value = AsyncService.class,version = "1.0.0")
 public class AsynServiceImpl implements AsyncService {
-    public String asycHello(String say) {
+
+    public String asyncHello(String say) {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

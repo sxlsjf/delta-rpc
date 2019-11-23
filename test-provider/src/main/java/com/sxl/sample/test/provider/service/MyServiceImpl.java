@@ -17,6 +17,11 @@ public class MyServiceImpl implements MyService {
 
     public String sayHello(String say) {
 
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("hello"+say+"========================================================================================");
 
         return "rpc调用成功";
