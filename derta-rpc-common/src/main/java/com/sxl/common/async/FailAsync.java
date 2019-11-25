@@ -1,4 +1,4 @@
-package com.sxl.rpc.future;
+package com.sxl.common.async;
 
 /**
  * @Author: shenxl

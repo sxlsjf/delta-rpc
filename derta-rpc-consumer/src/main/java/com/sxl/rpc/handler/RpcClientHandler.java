@@ -1,8 +1,8 @@
 package com.sxl.rpc.handler;
 
 import com.sxl.common.core.bean.RpcResponse;
+import com.sxl.common.promise.Deferred;
 import com.sxl.rpc.client.NettyClient;
-import com.sxl.rpc.future.RPCFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -22,13 +22,25 @@ public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, RpcResponse rpcResponse) {
 
-        Map<String,RPCFuture> pendingRPC=NettyClient.getInstance().getPendingRPC();
+        Map<String, Deferred> promiseMap=NettyClient.getInstance().getPromiseMap();
 
         String requestId = rpcResponse.getRequestId();
-        RPCFuture rpcFuture = pendingRPC.get(requestId);
-        if (rpcFuture != null) {
-            pendingRPC.remove(requestId);
-            rpcFuture.done(rpcResponse);
+
+        //这个promise才是真正的异步promise
+        Deferred deferred=promiseMap.get(requestId);
+
+        //从返回的promise中拿到结果，返回的promise是同步的，仅仅是充当包装返回结果的实体
+        Object reallyResult= rpcResponse.getResult().get();
+
+        if (deferred!= null) {
+
+            if(rpcResponse.isSuccess()){
+                deferred.resolve(reallyResult);
+            }else {
+                deferred.reject(rpcResponse.getException());
+            }
+
+            promiseMap.remove(requestId);
         }
 
     }

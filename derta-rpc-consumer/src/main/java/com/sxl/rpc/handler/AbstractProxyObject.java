@@ -16,6 +16,7 @@ public abstract class AbstractProxyObject<T>{
     protected String serviceVersion;
     protected ServiceDiscovery serviceDiscovery;
 
+
     public AbstractProxyObject(final Class<T> interfaceClass, final String serviceVersion, final ServiceDiscovery serviceDiscovery){
 
         this.interfaceClass=interfaceClass;

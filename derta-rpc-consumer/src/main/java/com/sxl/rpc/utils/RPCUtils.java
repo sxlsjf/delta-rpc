@@ -17,29 +17,15 @@ import java.util.UUID;
 @Slf4j
 public class RPCUtils {
 
-    public static RpcRequest setRequest(Class<?> interfaceClass, String serviceVersion, Method method, Object[] args) {
+    public static RpcRequest BuildRequest(Class<?> interfaceClass, String serviceVersion, Method method, Object[] args) {
 
-        RpcRequest request = setRequest(interfaceClass,serviceVersion,args);
+        RpcRequest request = BuildRequest(interfaceClass,serviceVersion,args);
         request.setMethodName(method.getName());
         request.setParameterTypes(method.getParameterTypes());
 
         return request;
     }
 
-
-    public static RpcRequest setRequest(Class<?> interfaceClass,  String serviceVersion,String methodName, Object[] args) {
-
-        RpcRequest request = setRequest(interfaceClass,serviceVersion,args);
-        request.setMethodName(methodName);
-        Class[] parameterTypes = new Class[args.length];
-
-        for (int i = 0; i < args.length; i++) {
-            parameterTypes[i] = getClassType(args[i]);
-        }
-        request.setParameterTypes(parameterTypes);
-
-        return request;
-    }
 
     public static String getServiceIP(ServiceDiscovery serviceDiscovery,String serviceName,String serviceVersion){
         // 获取 RPC 服务地址
@@ -57,15 +43,8 @@ public class RPCUtils {
        return serviceAddress;
     }
 
-    private static Class<?> getClassType(Object obj) {
 
-        Class<?> classType = obj.getClass();
-
-        return classType;
-    }
-
-
-    private static RpcRequest setRequest(Class<?> interfaceClass,  String serviceVersion, Object[] args){
+    private static RpcRequest BuildRequest(Class<?> interfaceClass,  String serviceVersion, Object[] args){
 
         RpcRequest request = new RpcRequest();
         request.setRequestId(UUID.randomUUID().toString());

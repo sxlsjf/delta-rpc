@@ -2,8 +2,9 @@ package com.sxl.rpc.client;
 
 
 import com.sxl.common.core.bean.RpcRequest;
-import com.sxl.rpc.future.RPCFuture;
 import com.sxl.rpc.pool.ConnectionPool;
+import com.sxl.common.promise.Deferred;
+import com.sxl.common.promise.Promise;
 import io.netty.channel.Channel;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +29,10 @@ public class NettyClient {
     private final Map<String,RpcRequest> requestLockMap=new ConcurrentHashMap<>();
 
     //每个请求对应一个Future
-    private final Map<String, RPCFuture> pendingRPC = new ConcurrentHashMap<>();
+    //private final Map<String, RPCFuture> pendingRPC = new ConcurrentHashMap<>();
+
+    //每个请求对应一个Promise
+    private final Map<String, Deferred> promiseMap = new ConcurrentHashMap<>();
 
     private static NettyClient instance;
 
@@ -56,31 +60,33 @@ public class NettyClient {
         return instance;
     }
 
-    //向实现端发送请求
-    public RPCFuture send(RpcRequest request,String ip) {
 
-        RPCFuture rpcFuture = new RPCFuture(request);
+
+    //向实现端发送请求
+    public Promise sendAsync(RpcRequest request,String ip) {
+
+
+        Deferred promise=new Deferred();
 
         try {
 
             //从连接池获取链接
             Channel channel=connect(ip);
-            //将一个RPCFuture对象放入全局上下文中
-            pendingRPC.put(request.getRequestId(), rpcFuture);
+
+            //将一个Deferred对象放入全局上下文中
+            promiseMap.put(request.getRequestId(),promise);
 
             //将请求信息发送出去
             channel.writeAndFlush(request).sync();
+
             //释放连接到连接池中
             connectionPoolMap.get(ip).releaseChannel(channel);
-
-            log.info("调用"+request.getRequestId()+"接收完毕");
 
         }  catch (Exception e) {
             e.printStackTrace();
         }
 
-        return rpcFuture;
+        return promise;
     }
-
 
 }

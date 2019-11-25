@@ -2,7 +2,8 @@ package org.sxl.rpc.server;
 
 import com.sxl.common.core.bean.RpcRequest;
 import com.sxl.common.core.bean.RpcResponse;
-import io.netty.channel.ChannelFuture;
+import com.sxl.common.promise.Deferred;
+import com.sxl.common.promise.LightDeferred;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +37,7 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
         response.setRequestId(request.getRequestId());
         try {
             Object result = InvokeServiceUtil.invoke(request,localHandlerMap);
-            response.setResult(result);
+            response.setResult((LightDeferred) result);
             response.setSuccess(true);
         } catch (Exception e) {
             log.error("handle result failure", e);
