@@ -33,38 +33,29 @@ public class TestProviderApplication {
 }
 服务端测试案列
 
-@DeltaService(value = AsyncService.class,version = "1.0.0")
-public class AsynServiceImpl implements AsyncService {
+public interface PromiseService {
 
-    public String asyncHello(String say) {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("异步调用"+say+"=========================================");
-
-        return "异步调用rpc成功";
-    }
+    Promise<String> sayHello(String say);
 }
 
-@DeltaService(value = MyService.class,version = "1.0.0")
-public class MyServiceImpl implements MyService {
+
+@DeltaService(value = PromiseService.class,version = "1.0.0")
+public class PromiseServiceImpl implements PromiseService {
 
 
-    public String sayHello(String say) {
+    public Promise<String> sayHello(String say) {
 
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("同步调用"+say+"==========================================");
+        System.out.println("打印消费端传过来的参数："+say);
 
-        return "同步rpc调用成功";
-
+        return new LightDeferred<String>(say);
     }
 }
+
 
 3.启动消费端代码。spring boot项目
 @SpringBootApplication
@@ -79,31 +70,28 @@ public class TestConsumerApplication {
 @RestController
 public class MyController {
 
-    @RpcReference(version = "1.0.0")
-    private MyService myservice;
 
-    @RpcReference(version = "1.0.0",interfaceClass = AsyncService.class)
-    private IAsyncProxyObject<AsyncService> asyncObjectProxy;
+    @RpcReference(version = "1.0.0")
+    private PromiseService promiseService;
+
 
     @RequestMapping("/index")
     public String say(){
 
-        String str=myservice.sayHello(" world");
+
         System.out.println("同步调用当前线程："+Thread.currentThread().getName());
-        System.out.println("同步调用结果===================="+str);
 
-
-        RPCFuture future=asyncObjectProxy.call("asyncHello","shenxl");
-        future.success((v)->{
-            System.out.println("异步调用当前线程："+Thread.currentThread().getName());
-            System.out.println("异步调用结果："+v);
-        }).fail((e)-> System.out.println("异步调用结果"+e));
+        promiseService.sayHello("i love you").then(System.out::println)
+                .then(t-> System.out.println("result:"+t))
+                .then(t-> System.out.println("reslut2:"+t))
+                .onSuccess(t-> System.out.println("成功执行"));
 
         return "success";
 
     }
 
 }
+
 
 4.项目结构
 
