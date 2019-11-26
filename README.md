@@ -81,13 +81,17 @@ public class MyController {
         promiseService.sayHello("i love you").then(System.out::println)
                 .then(t-> System.out.println("result:"+t))
                 .then(t-> System.out.println("reslut2:"+t))
-                .onSuccess(t-> System.out.println("成功执行"));
+                .onSuccess(t-> System.out.println("成功执行"))
+                .onFail(e->{
+                    throw new RuntimeException();
+                });
 
         return "success";
 
     }
 
 }
+
 
 
 4.项目结构
