@@ -1,10 +1,6 @@
 # deta-rpc
 a sample demo for rpc
 
-
-# deta-rpc
-a sample demo for rpc
-
 1.基于netty高性能NIO通信框架
 2.基于全注解使用
 3.实现自动装配
