@@ -1,5 +1,5 @@
 # deta-rpc
-a sample demo for rpc
+a sample demo for rpc to study 全注解，无缝集成springboot自动装配，基于netty高性能NIO作为通信框架，zookeeper作为注册中心，实现缓存连接以及异步调用
 
 
 1.基于netty高性能NIO通信框架
