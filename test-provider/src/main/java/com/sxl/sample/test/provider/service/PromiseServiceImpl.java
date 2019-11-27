@@ -24,6 +24,6 @@ public class PromiseServiceImpl implements PromiseService {
         }
         System.out.println("打印消费端传过来的参数："+say);
 
-        return new LightDeferred<String>(say);
+        return new LightDeferred<String>(say+" too");
     }
 }
