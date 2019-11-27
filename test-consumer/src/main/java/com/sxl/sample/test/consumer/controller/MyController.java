@@ -26,9 +26,9 @@ public class MyController {
 
         System.out.println("同步调用当前线程："+Thread.currentThread().getName());
 
-        promiseService.sayHello("i love you").then(System.out::println)
+        promiseService.sayHello("i love you")
+                .then(System.out::println)
                 .then(t-> System.out.println("result:"+t))
-                .then(t-> System.out.println("reslut2:"+t))
                 .onSuccess(t-> System.out.println("成功执行"))
                 .onFail(e->{
                     throw new RuntimeException();
