@@ -83,6 +83,7 @@ public class RpcServer {
         } catch (Exception e){
             log.error("RPC服务端启动异常，监听{}端口", e);
         }finally {
+
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
         }
