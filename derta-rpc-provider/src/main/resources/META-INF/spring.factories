@@ -1,7 +1,9 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.sxl.rpc.DertaProviderAutoConfiguration
+org.sxl.rpc.DeltaProviderAutoConfiguration
 
 # Application Listeners
 org.springframework.context.ApplicationListener=\
-org.sxl.rpc.listener.RpcServerActionListener
+org.sxl.rpc.listener.StartServerEventListener
 
+#org.springframework.context.ApplicationListener=\
+#org.sxl.rpc.listener.RpcListener

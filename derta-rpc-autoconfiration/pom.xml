@@ -12,7 +12,7 @@
     <artifactId>derta-rpc-autoconfiration</artifactId>
 
     <dependencies>
-        <dependency>
+      <!--  <dependency>
             <groupId>org.sxl</groupId>
             <artifactId>derta-rpc-consumer</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -22,7 +22,7 @@
             <groupId>org.sxl</groupId>
             <artifactId>derta-rpc-provider</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 

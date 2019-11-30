@@ -4,6 +4,7 @@ import com.sxl.common.core.util.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.sxl.rpc.ann.DeltaService;
 import org.sxl.rpc.ann.RpcService;
 import org.sxl.rpc.container.LocalHandlerMap;
 
@@ -27,7 +28,7 @@ public class ParseRpcServiceAnn implements BeanPostProcessor {
 
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 
-        RpcService rpcService=bean.getClass().getAnnotation(RpcService.class);
+        DeltaService rpcService=bean.getClass().getAnnotation(DeltaService.class);
 
         Optional.ofNullable(localHandlerMap).orElseThrow(NullPointerException::new);
 

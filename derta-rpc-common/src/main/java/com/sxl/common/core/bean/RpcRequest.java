@@ -6,7 +6,7 @@ import lombok.Data;
  * @Author: shenxl
  * @Date: 2019/9/27 14:25
  * @Version 1.0
- * @description：${description}
+ * @description
  */
 @Data
 public class RpcRequest {
@@ -35,5 +35,8 @@ public class RpcRequest {
      * 参数
      */
     private Object[] parameters;
+
+
+
 
 }

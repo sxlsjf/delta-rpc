@@ -4,7 +4,6 @@ import com.sxl.common.core.bean.RpcRequest;
 import com.sxl.common.core.bean.RpcResponse;
 import com.sxl.common.core.coder.RpcDecoder;
 import com.sxl.common.core.coder.RpcEncoder;
-import com.sxl.common.register.zookeeper.ZooKeeperServiceRegistry;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -12,7 +11,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.sxl.rpc.container.LocalHandlerMap;
-import java.util.Optional;
+import java.util.Date;
 
 /**
  * @Author: shenxl
@@ -21,69 +20,52 @@ import java.util.Optional;
  * @description：RPC 服务器（用于发布 RPC 服务）
  */
 @Slf4j
-public class RpcServer {
-
-    private ZooKeeperServiceRegistry serviceRegistry;
+public final class RpcServer extends Thread{
 
     private Integer port;
 
     private final LocalHandlerMap localHandlerMap;
 
-    public RpcServer(LocalHandlerMap localHandlerMap, Integer port, ZooKeeperServiceRegistry serviceRegistry) {
-        this.serviceRegistry=serviceRegistry;
-        this.localHandlerMap= localHandlerMap;
-        this.port=port;
+    public RpcServer(LocalHandlerMap localHandlerMap, Integer port) {
+
+        this.localHandlerMap = localHandlerMap;
+        this.port = port;
     }
 
 
-    public void action() {
-
-        log.info("另起一个rpc服务线程...");
-
-        new Thread(this::startServer).start();
-
-    }
-
-    private void startServer(){
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
+    @Override
+    public void run() {
+        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             // 创建并初始化 Netty 服务端 Bootstrap 对象
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(bossGroup, workerGroup)
-            .channel(NioServerSocketChannel.class)
-            .option(ChannelOption.SO_BACKLOG, 1024)
-            .childOption(ChannelOption.SO_KEEPALIVE, true)
-            .childHandler(new ChannelInitializer<SocketChannel>() {
-                @Override
-                public void initChannel(SocketChannel channel) {
-                    ChannelPipeline pipeline = channel.pipeline();
-                    pipeline.addLast(new RpcDecoder(RpcRequest.class)); // 解码 RPC 请求
-                    pipeline.addLast(new RpcEncoder(RpcResponse.class)); // 编码 RPC 响应
-                    pipeline.addLast(new RpcServerHandler(localHandlerMap)); // 处理 RPC 请求
-                }
-            });
+                    .channel(NioServerSocketChannel.class)
+                    .option(ChannelOption.SO_BACKLOG, 1024)
+                    .childOption(ChannelOption.SO_KEEPALIVE, true)
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
+                        @Override
+                        public void initChannel(SocketChannel channel) {
+                            ChannelPipeline pipeline = channel.pipeline();
+                            pipeline.addLast(new RpcDecoder(RpcRequest.class)); // 解码 RPC 请求
+                            pipeline.addLast(new RpcEncoder(RpcResponse.class)); // 编码 RPC 响应
+                            pipeline.addLast(new RpcServerHandler(localHandlerMap)); // 处理 RPC 请求
+                        }
+                    });
 
-            //String ip = InetAddress.getLocalHost().getHostAddress();
-            String ip = "127.0.0.1";
-            String serviceAddress=ip+":"+port;
             // 启动 RPC 服务器
-            ChannelFuture future = bootstrap.bind(ip, port).sync();
-            // 注册 RPC 服务地址
-            Optional.ofNullable(serviceRegistry).ifPresent((t)->
-                localHandlerMap.getHandlers().keySet().parallelStream().forEach((s)->{
-                t.register(s, serviceAddress);
-                log.info("注册：register service: {} => {}", s, serviceAddress);
-            }));
+            ChannelFuture future = bootstrap.bind(port).addListener(future1 ->
+                    System.out.println(future1.isSuccess() ? new Date() + ": 端口[" + port + "]绑定成功!" : "端口[" + port + "]绑定失败!"))
+                    .sync();
 
             log.info("服务已启动：server started on port {}", port);
-            // 关闭 RPC 服务器
+            // 同步等待服务端监听端口关闭 后面改用闭锁来阻塞提供者端
             future.channel().closeFuture().sync();
 
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error("RPC服务端启动异常，监听{}端口", e);
-        }finally {
-
+        } finally {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
         }

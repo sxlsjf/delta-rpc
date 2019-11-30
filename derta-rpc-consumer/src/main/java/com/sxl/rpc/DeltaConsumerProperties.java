@@ -10,13 +10,26 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @description
  */
 @Data
-@ConfigurationProperties(prefix = "spring.derta")
-public class DertaConsumerProperies {
+@ConfigurationProperties(prefix = "spring.delta")
+public class DeltaConsumerProperties {
 
     /**
      *zk地址
      */
     private String zkAddressDiscover;
 
+    /**
+     *是否开启客户端
+     */
     private boolean consumer;
+
+    /**
+     *最大空闲连接数
+     */
+    private Integer poolMaxIdle;
+
+    /**
+     *最大连接数
+     */
+    private Integer poolMaxTotal;
 }

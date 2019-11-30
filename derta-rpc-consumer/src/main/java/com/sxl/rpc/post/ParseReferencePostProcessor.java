@@ -1,11 +1,10 @@
 package com.sxl.rpc.post;
 
 import com.sxl.rpc.annoation.RpcReference;
-import com.sxl.rpc.client.RpcClientProxyFactory;
+import com.sxl.rpc.factory.RpcClientProxyFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
 
@@ -37,13 +36,17 @@ public class ParseReferencePostProcessor implements BeanPostProcessor {
             objClz = bean.getClass();
         }
 
+
         for (Field field : objClz.getDeclaredFields()) {
 
             RpcReference reference = field.getAnnotation(RpcReference.class);
 
             Optional.ofNullable(reference).ifPresent((t) -> {
-                Object objProxy = factory.create(field.getType(), reference.version());
+
+                Object objProxy;
+                objProxy = factory.create(field.getType(), reference.version());
                 field.setAccessible(true);
+
                 try {
                     field.set(bean, objProxy);
                 } catch (IllegalAccessException e) {
