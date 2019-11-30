@@ -64,6 +64,7 @@ public class NettyClient {
                 //放弃对象锁 并阻塞等待notify
                 request.wait();
             }
+
             connectionPoolMap.get(ip).releaseChannel(channel);
             log.info("调用"+request.getRequestId()+"接收完毕");
 
