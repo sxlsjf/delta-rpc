@@ -46,7 +46,7 @@ public class PromiseServiceImpl implements PromiseService {
             e.printStackTrace();
         }
         System.out.println("打印消费端传过来的参数："+say);
-
+        //返回的对象用promise实现类包装
         return new LightDeferred<String>(say);
     }
 }
