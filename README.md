@@ -12,7 +12,7 @@ a sample demo for rpc
 9.基于JDK8，大量使用lamada表达式，以及函数接口
 10.不同分支侧重的功能不同，以及代码优化。
 分支介绍：
-https://github.com/sxlsjf/delta-rpc/tree/future-promise-2.1.0这个分支是采用promise编程范式实现的异步调用，https://github.com/sxlsjf/delta-rpc/tree/feature-asyn-v2.0此分支分别实现同步异步调用，与采用promise的方式稍有不同
+https://github.com/sxlsjf/delta-rpc/tree/future-promise-2.1.0 这个分支是采用promise编程范式实现的异步调用，https://github.com/sxlsjf/delta-rpc/tree/feature-asyn-v2.0 此分支分别实现同步异步调用，与采用promise的方式稍有不同
 
 测试步骤
 1.开启zookeeper，地址127.0.0.1：2181
