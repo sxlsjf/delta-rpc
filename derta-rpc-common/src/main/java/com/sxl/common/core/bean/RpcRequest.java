@@ -39,10 +39,7 @@ public class RpcRequest {
     private RpcResponse response;
 
     public Boolean getIsResponse() {
-        if (response==null){
-            return false;
-        }
-        return true;
+        return !(response==null);
     }
 
 

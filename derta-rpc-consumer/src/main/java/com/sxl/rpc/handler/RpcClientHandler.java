@@ -8,6 +8,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @Author: shenxl
@@ -26,7 +27,7 @@ public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
 
         String requestId = rpcResponse.getRequestId();
         RPCFuture rpcFuture = pendingRPC.get(requestId);
-        if (rpcFuture != null) {
+        if (Objects.nonNull(rpcFuture)) {
             pendingRPC.remove(requestId);
             rpcFuture.done(rpcResponse);
         }

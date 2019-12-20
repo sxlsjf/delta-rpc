@@ -6,6 +6,7 @@ import com.sxl.common.register.ServiceDiscovery;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Method;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -45,7 +46,7 @@ public class RPCUtils {
         // 获取 RPC 服务地址
         String serviceAddress="";
 
-        if(null!=serviceDiscovery){
+        if(Objects.nonNull(serviceDiscovery)){
             String service=serviceName;
             if (StringUtil.isNotEmpty(serviceVersion)) {
                 service += "-" + serviceVersion;

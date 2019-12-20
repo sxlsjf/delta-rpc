@@ -40,7 +40,7 @@ public class ParseRpcServiceAnn implements BeanPostProcessor {
             if (StringUtil.isNotEmpty(serviceVersion)) {
 
                 serviceName += "-" + serviceVersion;
-                localHandlerMap.getHandlers().put(serviceName, bean);
+                localHandlerMap.put(serviceName, bean);
                 log.info("服务实例 {} 加入本地缓存...",serviceName);
             }
         });

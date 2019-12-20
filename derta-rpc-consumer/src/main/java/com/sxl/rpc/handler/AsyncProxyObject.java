@@ -6,6 +6,7 @@ import com.sxl.rpc.client.NettyClient;
 import com.sxl.rpc.future.RPCFuture;
 import com.sxl.rpc.utils.RPCUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class AsyncProxyObject<T> extends AbstractProxyObject<T> implements IAsyn
     @Override
     public RPCFuture call(String methodName, Object... args) {
 
-        if(methodName==null){
+        if(StringUtils.isEmpty(methodName)){
             throw new NullPointerException("method can't be null");
         }
 

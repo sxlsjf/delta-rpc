@@ -7,6 +7,8 @@ import net.sf.cglib.reflect.FastMethod;
 
 import org.sxl.rpc.container.LocalHandlerMap;
 
+import java.util.Objects;
+
 /**
  *
  */
@@ -25,9 +27,9 @@ public class InvokeServiceUtil {
         if (StringUtil.isNotEmpty(serviceVersion)) {
             serviceName += "-" + serviceVersion;
         }
-        Object serviceBean = localHandlerMap.getHandlers().get(serviceName);
+        Object serviceBean = localHandlerMap.get(serviceName);
 
-        if(serviceBean==null){
+        if(Objects.isNull(serviceBean)){
             throw new RuntimeException(String.format("can not find service bean by key: %s",serviceName));
         }
 

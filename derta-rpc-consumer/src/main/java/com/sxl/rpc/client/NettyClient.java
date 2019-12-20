@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -37,7 +38,7 @@ public class NettyClient {
         String[] IPArr=ip.split(":");
         String host=IPArr[0];
         Integer port=Integer.valueOf(IPArr[1]);
-        if (connectionPoolMap.get(ip)==null){
+        if (Objects.isNull(connectionPoolMap.get(ip))){
             ConnectionPool connectionPool = new ConnectionPool(host, port);
             connectionPoolMap.putIfAbsent(ip, connectionPool);
         }

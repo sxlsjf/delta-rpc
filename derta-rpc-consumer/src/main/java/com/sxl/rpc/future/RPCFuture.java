@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Lock;
@@ -60,7 +61,7 @@ public class RPCFuture<V> implements Future<V> {
     @Override
     public V get() {
         sync.acquire(-1);
-        if (this.response != null) {
+        if (Objects.nonNull(this.response) ) {
             return (V) this.response.getResult();
         } else {
             return null;
@@ -71,7 +72,7 @@ public class RPCFuture<V> implements Future<V> {
     public V get(long timeout, TimeUnit unit) throws InterruptedException {
         boolean success = sync.tryAcquireNanos(-1, unit.toNanos(timeout));
         if (success) {
-            if (this.response != null) {
+            if (Objects.nonNull(this.response)) {
                 return (V) this.response.getResult();
             } else {
                 return null;
