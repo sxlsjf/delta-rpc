@@ -24,14 +24,25 @@ public final class RpcServer extends Thread{
 
     private Integer port;
 
-    private final LocalHandlerMap localHandlerMap;
+    private  LocalHandlerMap localHandlerMap;
 
-    public RpcServer(LocalHandlerMap localHandlerMap, Integer port) {
+    private static final RpcServer instance=new RpcServer();
 
-        this.localHandlerMap = localHandlerMap;
-        this.port = port;
+    private RpcServer(){ }
+
+    public static RpcServer getInstance(){
+        return instance;
     }
 
+    public RpcServer setPort(Integer port){
+        this.port=port;
+        return this;
+    }
+
+    public RpcServer setLocalHandlerMap(LocalHandlerMap localHandlerMap){
+        this.localHandlerMap=localHandlerMap;
+        return this;
+    }
 
     @Override
     public void run() {

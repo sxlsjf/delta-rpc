@@ -30,14 +30,11 @@ public class StartServerEventListener implements ApplicationListener<Application
         applicationContext=event.getApplicationContext();
 
         LocalHandlerMap localHandlerMap=applicationContext.getBean(LocalHandlerMap.class);
-
         ZooKeeperServiceRegistry zkRegister=applicationContext.getBean(ZooKeeperServiceRegistry.class);
 
         //String ip = InetAddress.getLocalHost().getHostAddress();
         String ip = "127.0.0.1";
-
         Integer port=applicationContext.getBean(DeltaProviderProperties.class).getServerPort();
-
         String  serviceAddress=ip+":"+port;
 
         // 注册 RPC 服务地址
@@ -48,7 +45,10 @@ public class StartServerEventListener implements ApplicationListener<Application
                 }));
 
         //启动rpc
-        new RpcServer(localHandlerMap,port).start();
+       RpcServer.getInstance()
+               .setLocalHandlerMap(localHandlerMap)
+               .setPort(port)
+               .start();
     }
 
 }
