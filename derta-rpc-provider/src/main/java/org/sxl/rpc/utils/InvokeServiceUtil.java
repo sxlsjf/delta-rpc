@@ -25,7 +25,7 @@ public class InvokeServiceUtil {
         if (StringUtil.isNotEmpty(serviceVersion)) {
             serviceName += "-" + serviceVersion;
         }
-        Object serviceBean = localHandlerMap.getHandlers().get(serviceName);
+        Object serviceBean = localHandlerMap.get(serviceName);
 
         if(serviceBean==null){
             throw new RuntimeException(String.format("can not find service bean by key: %s",serviceName));

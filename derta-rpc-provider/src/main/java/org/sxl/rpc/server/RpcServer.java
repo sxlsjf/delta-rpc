@@ -34,7 +34,7 @@ public final class RpcServer extends Thread{
 
     }
 
-    public static RpcServer getInstance(){
+    public static RpcServer getSingleInstance(){
         return instance;
     }
 
