@@ -48,7 +48,11 @@ public class StartServerEventListener implements ApplicationListener<Application
                 }));
 
         //启动rpc
-        new RpcServer(localHandlerMap,port).start();
+        RpcServer.getInstance()
+                .setPort(port)
+                .setLocalHandlerMap(localHandlerMap)
+                .start();
+
     }
 
 }
