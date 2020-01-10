@@ -10,6 +10,8 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Optional;
 
 /**
@@ -42,7 +44,22 @@ public class ParseReferencePostProcessor implements BeanPostProcessor {
 
             RpcReference reference = field.getAnnotation(RpcReference.class);
 
-            Optional.ofNullable(reference).ifPresent((t) -> {
+            System.out.println("class:"+field.getType());
+
+
+
+            Optional.ofNullable(reference).ifPresent(t -> {
+
+               /* if(field.getType().isAssignableFrom(IAsyncProxyObject.class) ){
+                    Type[] types= field.getType().getGenericInterfaces();
+                    ParameterizedType parameterizedType = (ParameterizedType) types[0];
+
+                    Type type = parameterizedType.getActualTypeArguments()[0];
+                    Class clazz = (Class) type;
+                    System.out.println("class:"+clazz);
+                }*/
+
+
                 Object objProxy;
                 if (reference.async() == true && field.getType().equals(IAsyncProxyObject.class)) {
                     objProxy = factory.createAsync(reference.interfaceClass(), reference.version());
