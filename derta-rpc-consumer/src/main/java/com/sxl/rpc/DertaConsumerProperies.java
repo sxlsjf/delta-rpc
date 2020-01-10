@@ -14,7 +14,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class DertaConsumerProperies {
 
     /**
-     *zk地址
+     * zk地址
      */
     private String zkAddressDiscover;
 

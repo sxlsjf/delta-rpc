@@ -11,6 +11,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.sxl.rpc.container.LocalHandlerMap;
+
 import java.util.Date;
 
 /**
@@ -21,8 +22,6 @@ import java.util.Date;
  */
 @Slf4j
 public class RpcServer {
-
-
 
     private Integer port;
 
@@ -72,7 +71,7 @@ public class RpcServer {
             future.channel().closeFuture().sync();
 
         } catch (Exception e) {
-            log.error("RPC服务端启动异常，监听{}端口", e);
+            log.error("RPC服务端启动异常，监听{}端口",port, e);
         } finally {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();

@@ -24,13 +24,14 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
 
     private final LocalHandlerMap localHandlerMap;
 
-    public RpcServerHandler(LocalHandlerMap localHandlerMap){
-        this.localHandlerMap= localHandlerMap;
+    public RpcServerHandler(LocalHandlerMap localHandlerMap) {
+        this.localHandlerMap = localHandlerMap;
     }
 
     private String serviceName;
+
     @Override
-    public void channelRead0(final ChannelHandlerContext ctx, RpcRequest request)  {
+    public void channelRead0(final ChannelHandlerContext ctx, RpcRequest request) {
         // 创建并初始化 RPC 响应对象
         RpcResponse response = new RpcResponse();
         response.setRequestId(request.getRequestId());
@@ -55,8 +56,8 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
         }
         Object serviceBean = localHandlerMap.getHandlers().get(serviceName);
 
-        Optional.ofNullable(serviceBean).orElseThrow(()->
-                new RuntimeException(String.format("can not find service bean by key: %s",serviceName)));
+        Optional.ofNullable(serviceBean).orElseThrow(() ->
+                new RuntimeException(String.format("can not find service bean by key: %s", serviceName)));
 
         // 获取反射调用所需的参数
         Class<?> serviceClass = serviceBean.getClass();

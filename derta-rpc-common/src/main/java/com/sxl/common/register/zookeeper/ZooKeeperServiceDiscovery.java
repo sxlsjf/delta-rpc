@@ -50,7 +50,7 @@ public class ZooKeeperServiceDiscovery implements ServiceDiscovery {
                 log.info("get only address node: {}", address);
             } else {
                 // 若存在多个地址，则随机获取一个地址
-                address = addressList.get(new Random().nextInt(size-1));
+                address = addressList.get(new Random().nextInt(size - 1));
                 log.info("get random address node: {}", address);
             }
             // 获取 address 节点的值

@@ -20,8 +20,8 @@ public class ClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, RpcResponse rpcResponse) {
 
-        RpcRequest objectLock=  NettyClient.getInstance().getRequestLockMap().get(rpcResponse.getRequestId());
-        if (objectLock!=null) {
+        RpcRequest objectLock = NettyClient.getInstance().getRequestLockMap().get(rpcResponse.getRequestId());
+        if (objectLock != null) {
 
             synchronized (objectLock) {
                 //唤醒在该对象锁上wait的线程
@@ -34,7 +34,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)  {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         log.error("api caught exception", cause);
         ctx.close();
     }

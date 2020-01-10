@@ -11,9 +11,9 @@ import java.lang.annotation.*;
  * @Version 1.0
  * @description：${description}
  */
+@Documented
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Documented
 @Import(RpcServiceScannerRegistrar.class)
 public @interface ServiceScan {
 

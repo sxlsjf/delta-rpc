@@ -15,9 +15,10 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import org.apache.commons.pool2.BasePooledObjectFactory;
 import org.apache.commons.pool2.PooledObject;
 import org.apache.commons.pool2.impl.DefaultPooledObject;
+
 /**
  * 生产连接的工厂
- * */
+ */
 public class ConnectFactory extends BasePooledObjectFactory<Channel> {
 
     private String ip;
@@ -27,7 +28,7 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
     private Bootstrap bootstrap = new Bootstrap();
 
     //netty线程组 同一个服务的连接池内各个连接共用
-    private EventLoopGroup group=new NioEventLoopGroup();
+    private EventLoopGroup group = new NioEventLoopGroup();
 
     public ConnectFactory(String ip, Integer port) {
         this.ip = ip;
@@ -43,7 +44,7 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
 
         bootstrap.group(group)
                 .channel(NioSocketChannel.class)
-                .option(ChannelOption.TCP_NODELAY,true)
+                .option(ChannelOption.TCP_NODELAY, true)
                 .option(ChannelOption.SO_KEEPALIVE, true)
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
@@ -55,9 +56,9 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
                     }
                 });
 
-        ChannelFuture f=bootstrap.connect(ip,port).sync();
+        ChannelFuture f = bootstrap.connect(ip, port).sync();
 
-        System.out.println("pool create channel "+ip+":"+port);
+        System.out.println("pool create channel " + ip + ":" + port);
 
         return f.channel();
     }
@@ -68,8 +69,8 @@ public class ConnectFactory extends BasePooledObjectFactory<Channel> {
     }
 
     @Override
-    public void destroyObject(PooledObject<Channel> p)  {
-        System.out.println("destroy channel "+ip+":"+port);
+    public void destroyObject(PooledObject<Channel> p) {
+        System.out.println("destroy channel " + ip + ":" + port);
         //销毁channel时释放资源 http://www.infoq.com/cn/articles/netty-elegant-exit-mechanism-and-principles
         p.getObject().close();
         //关闭链路 而不是关闭所有EventLoop线程和注册在该线程持有的多路复用器上所有的Channel

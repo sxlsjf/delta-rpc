@@ -2,10 +2,7 @@ package org.sxl.rpc.ann;
 
 import org.springframework.stereotype.Component;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * @Author: shenxl
@@ -13,6 +10,7 @@ import java.lang.annotation.Target;
  * @Version 1.0
  * @description：RPC 服务注解（标注在服务实现类上），Component 是为了让 spring 扫描到
  */
+@Documented
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Component
@@ -28,7 +26,7 @@ public @interface RpcService {
      */
     String version() default "";
 
-    String group()   default "";
+    String group() default "";
 
     int timeout() default 5000;
 }

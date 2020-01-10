@@ -16,9 +16,9 @@ import org.sxl.rpc.server.RpcServer;
 
 /**
  * @Author: shenxl
- *  * @Date: 2019/9/30 14:32
- *  * @Version 1.0
- *  * @description：${description}
+ * * @Date: 2019/9/30 14:32
+ * * @Version 1.0
+ * * @description：${description}
  */
 
 @Configuration
@@ -32,29 +32,28 @@ public class DertaProviderAutoConfiguration {
     private DertaProviderProperties dertaProperties;
 
     @Bean
-    public ZooKeeperServiceRegistry zooKeeperServiceRegistry(){
+    public ZooKeeperServiceRegistry zooKeeperServiceRegistry() {
 
         return new ZooKeeperServiceRegistry(dertaProperties.getZkAddressRegister());
     }
 
     @Bean
-    public LocalHandlerMap localHandlerMap(){
+    public LocalHandlerMap localHandlerMap() {
 
         return new LocalHandlerMap();
     }
-    @Bean
-    public RpcServer rpcServer(LocalHandlerMap localHandlerMap){
 
-        return new RpcServer(localHandlerMap,dertaProperties.getServerPort());
+    @Bean
+    public RpcServer rpcServer(LocalHandlerMap localHandlerMap) {
+
+        return new RpcServer(localHandlerMap, dertaProperties.getServerPort());
     }
 
     @Bean
-    public ParseRpcServiceAnn parseRpcServiceAnn(LocalHandlerMap localHandlerMap){
+    public ParseRpcServiceAnn parseRpcServiceAnn(LocalHandlerMap localHandlerMap) {
 
         return new ParseRpcServiceAnn(localHandlerMap);
     }
-
-
 
 
 }

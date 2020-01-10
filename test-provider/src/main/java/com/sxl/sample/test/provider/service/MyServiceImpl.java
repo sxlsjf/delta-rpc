@@ -12,13 +12,13 @@ import org.sxl.rpc.ann.RpcService;
  * @description：${description}
  */
 
-@DeltaService(value = Myservice.class,version = "1.0.0")
+@DeltaService(value = Myservice.class, version = "1.0.0")
 public class MyServiceImpl implements Myservice {
 
 
     public String sayHello(String say) {
 
-        System.out.println("hello"+say+"========================================================================================");
+        System.out.println("hello" + say + "========================================================================================");
 
         return "rpc调用成功";
 
