@@ -9,7 +9,6 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.sxl.rpc.container.LocalHandlerMap;
 import java.util.Date;
