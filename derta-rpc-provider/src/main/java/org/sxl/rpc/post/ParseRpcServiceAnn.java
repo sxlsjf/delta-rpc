@@ -21,18 +21,18 @@ public class ParseRpcServiceAnn implements BeanPostProcessor {
 
     private final LocalHandlerMap localHandlerMap;
 
-    public ParseRpcServiceAnn(LocalHandlerMap localHandlerMap){
-        this.localHandlerMap=localHandlerMap;
+    public ParseRpcServiceAnn(LocalHandlerMap localHandlerMap) {
+        this.localHandlerMap = localHandlerMap;
 
     }
 
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 
-        DeltaService rpcService=bean.getClass().getAnnotation(DeltaService.class);
+        DeltaService rpcService = bean.getClass().getAnnotation(DeltaService.class);
 
         Optional.ofNullable(localHandlerMap).orElseThrow(NullPointerException::new);
 
-        Optional.ofNullable(rpcService).ifPresent((t)->{
+        Optional.ofNullable(rpcService).ifPresent((t) -> {
 
             String serviceName = t.value().getName();
             String serviceVersion = t.version();
@@ -41,7 +41,7 @@ public class ParseRpcServiceAnn implements BeanPostProcessor {
 
                 serviceName += "-" + serviceVersion;
                 localHandlerMap.put(serviceName, bean);
-                log.info("服务实例 {} 加入本地缓存...",serviceName);
+                log.info("服务实例 {} 加入本地缓存...", serviceName);
             }
         });
 

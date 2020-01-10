@@ -1,7 +1,6 @@
 package com.sxl.common.promise;
 
 
-
 import com.sxl.common.async.FailAsync;
 import com.sxl.common.async.SuccessAsync;
 
@@ -25,8 +24,7 @@ public interface Promise<R> {
 
     R get();
 
-    R get(long timeout, TimeUnit unit)throws InterruptedException;
-
+    R get(long timeout, TimeUnit unit) throws InterruptedException;
 
 
 }

@@ -15,9 +15,9 @@ import org.sxl.rpc.post.ParseRpcServiceAnn;
 
 /**
  * @Author: shenxl
- *  * @Date: 2019/9/30 14:32
- *  * @Version 1.0
- *  * @description：${description}
+ * * @Date: 2019/9/30 14:32
+ * * @Version 1.0
+ * * @description：${description}
  */
 
 @Configuration
@@ -31,24 +31,22 @@ public class DeltaProviderAutoConfiguration {
     private DeltaProviderProperties deltaProperties;
 
     @Bean
-    public ZooKeeperServiceRegistry zooKeeperServiceRegistry(){
+    public ZooKeeperServiceRegistry zooKeeperServiceRegistry() {
 
         return new ZooKeeperServiceRegistry(deltaProperties.getZkAddressRegister());
     }
 
     @Bean
-    public LocalHandlerMap localHandlerMap(){
+    public LocalHandlerMap localHandlerMap() {
 
         return new LocalHandlerMap();
     }
 
     @Bean
-    public ParseRpcServiceAnn parseRpcServiceAnn(LocalHandlerMap localHandlerMap){
+    public ParseRpcServiceAnn parseRpcServiceAnn(LocalHandlerMap localHandlerMap) {
 
         return new ParseRpcServiceAnn(localHandlerMap);
     }
-
-
 
 
 }

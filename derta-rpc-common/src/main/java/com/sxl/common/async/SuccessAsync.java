@@ -7,7 +7,7 @@ package com.sxl.common.async;
  * @description：${description}
  */
 @FunctionalInterface
-public interface SuccessAsync<V> extends AsyncRpcCallback{
+public interface SuccessAsync<V> extends AsyncRpcCallback {
 
     void success(V result);
 }

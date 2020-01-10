@@ -18,8 +18,8 @@ public class LightDeferred<R> implements Promise<R> {
 
     private R result;
 
-    public LightDeferred(R result){
-        this.result=result;
+    public LightDeferred(R result) {
+        this.result = result;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class LightDeferred<R> implements Promise<R> {
 
     /**
      * 用于获取返回结果，其他方法没用，实现等于浪费
-     * */
+     */
     @Override
     public R get() {
         return result;

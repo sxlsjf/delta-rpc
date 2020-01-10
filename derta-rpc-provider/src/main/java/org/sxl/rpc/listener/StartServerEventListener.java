@@ -27,18 +27,18 @@ public class StartServerEventListener implements ApplicationListener<Application
     public void onApplicationEvent(ApplicationStartedEvent event) {
 
         log.info("监听器启动");
-        applicationContext=event.getApplicationContext();
+        applicationContext = event.getApplicationContext();
 
-        LocalHandlerMap localHandlerMap=applicationContext.getBean(LocalHandlerMap.class);
+        LocalHandlerMap localHandlerMap = applicationContext.getBean(LocalHandlerMap.class);
 
-        ZooKeeperServiceRegistry zkRegister=applicationContext.getBean(ZooKeeperServiceRegistry.class);
+        ZooKeeperServiceRegistry zkRegister = applicationContext.getBean(ZooKeeperServiceRegistry.class);
 
         //String ip = InetAddress.getLocalHost().getHostAddress();
         String ip = "127.0.0.1";
 
-        Integer port=applicationContext.getBean(DeltaProviderProperties.class).getServerPort();
+        Integer port = applicationContext.getBean(DeltaProviderProperties.class).getServerPort();
 
-        String  serviceAddress=ip+":"+port;
+        String serviceAddress = ip + ":" + port;
 
         // 注册 RPC 服务地址
         Optional.of(zkRegister).ifPresent(t ->

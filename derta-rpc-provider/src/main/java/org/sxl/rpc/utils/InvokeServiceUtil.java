@@ -14,10 +14,11 @@ public class InvokeServiceUtil {
 
     /**
      * 从spring中取出实现类 反射调用相应实现类并结果
+     *
      * @param request
      * @return
      */
-    public static Object invoke(RpcRequest request, LocalHandlerMap localHandlerMap)throws Exception{
+    public static Object invoke(RpcRequest request, LocalHandlerMap localHandlerMap) throws Exception {
 
         // 获取服务对象
         String serviceName = request.getInterfaceName();
@@ -27,8 +28,8 @@ public class InvokeServiceUtil {
         }
         Object serviceBean = localHandlerMap.get(serviceName);
 
-        if(serviceBean==null){
-            throw new RuntimeException(String.format("can not find service bean by key: %s",serviceName));
+        if (serviceBean == null) {
+            throw new RuntimeException(String.format("can not find service bean by key: %s", serviceName));
         }
 
         // 获取反射调用所需的参数

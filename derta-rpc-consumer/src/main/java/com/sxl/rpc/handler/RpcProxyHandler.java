@@ -21,8 +21,8 @@ public class RpcProxyHandler<T> extends AbstractProxyObject<T> implements Invoca
 
 
     public RpcProxyHandler(final Class<T> interfaceClass, final String serviceVersion,
-                           final ServiceDiscovery serviceDiscovery){
-      super(interfaceClass,serviceVersion,serviceDiscovery);
+                           final ServiceDiscovery serviceDiscovery) {
+        super(interfaceClass, serviceVersion, serviceDiscovery);
     }
 
     @Override
@@ -32,11 +32,11 @@ public class RpcProxyHandler<T> extends AbstractProxyObject<T> implements Invoca
         RpcRequest request = RPCUtils.buildRequest(interfaceClass, serviceVersion, method, args);
 
         // 获取 RPC 服务地址
-        String ipAddress=RPCUtils.getServiceIP(serviceDiscovery,interfaceClass.getName(),serviceVersion);
+        String ipAddress = RPCUtils.getServiceIP(serviceDiscovery, interfaceClass.getName(), serviceVersion);
 
         // 创建 RPC 客户端对象并发送 RPC 请求
         long time = System.currentTimeMillis();
-        Promise promise=NettyClient.getInstance().sendAsync(request, ipAddress);
+        Promise promise = NettyClient.getInstance().sendAsync(request, ipAddress);
 
         log.info("异步调用耗时: {}ms", System.currentTimeMillis() - time);
 

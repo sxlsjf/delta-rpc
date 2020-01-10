@@ -21,18 +21,18 @@ public class MyController {
 
 
     @RequestMapping("/index")
-    public String say(){
+    public String say() {
 
 
-        System.out.println("同步调用当前线程："+Thread.currentThread().getName());
+        System.out.println("同步调用当前线程：" + Thread.currentThread().getName());
 
         promiseService.sayHello("i love you")
                 .then(System.out::println)
-                .then(t-> System.out.println("result:"+t))
-                .onSuccess(t-> System.out.println("成功执行"))
-                .onFail(e->{
+                .then(t -> System.out.println("result:" + t))
+                .onSuccess(t -> System.out.println("成功执行"))
+                .onFail(e -> {
                     throw new RuntimeException();
-        });
+                });
 
         return "success";
 

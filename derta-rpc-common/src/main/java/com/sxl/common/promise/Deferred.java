@@ -44,7 +44,7 @@ public class Deferred<R> implements Promise<R> {
     @Override
     public Promise<R> then(Consumer<R> consumer) {
         //判断是已经返回结果，返回结果了，直接执行回调函数
-        if(isDone()){
+        if (isDone()) {
             consumer.accept(result);
         }
         //不执行具体操作 只返回promise并保存其回调 具体操作在回调完成时执行
@@ -55,7 +55,7 @@ public class Deferred<R> implements Promise<R> {
     @Override
     public Promise<R> onSuccess(SuccessAsync<R> successAsync) {
 
-        if(isDone()){
+        if (isDone()) {
             successAsync.success(result);
         }
         this.successAsync = successAsync;
@@ -64,7 +64,7 @@ public class Deferred<R> implements Promise<R> {
 
     @Override
     public Promise<R> onFail(FailAsync failAsync) {
-        if(isDone()){
+        if (isDone()) {
             failAsync.fail(ex);
         }
         //不执行具体操作 只返回promise并保存其回调 具体操作在回调完成时执行
@@ -110,7 +110,7 @@ public class Deferred<R> implements Promise<R> {
         boolean loop = true;
         while (loop) {
             if (thenCallBackList.isEmpty()) {
-               break;
+                break;
             }
             Consumer<R> callBack = thenCallBackList.poll();
             callBack.accept((R) result);
@@ -121,7 +121,7 @@ public class Deferred<R> implements Promise<R> {
     }
 
     public void reject(Exception ex) {
-        this.ex=ex;
+        this.ex = ex;
         sync.release(1);
         Optional.ofNullable(failAsync).ifPresent(f -> f.fail(ex));
     }

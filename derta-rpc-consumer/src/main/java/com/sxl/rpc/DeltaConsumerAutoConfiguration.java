@@ -28,19 +28,19 @@ public class DeltaConsumerAutoConfiguration {
     private DeltaConsumerProperties deltaConsumerProperties;
 
     @Bean
-    public ZooKeeperServiceDiscovery zooKeeperServiceDiscovery(){
+    public ZooKeeperServiceDiscovery zooKeeperServiceDiscovery() {
 
         return new ZooKeeperServiceDiscovery(deltaConsumerProperties.getZkAddressDiscover());
     }
 
     @Bean
-    public RpcClientProxyFactory rpcClientProxyFactory(ZooKeeperServiceDiscovery zooKeeperServiceDiscovery){
+    public RpcClientProxyFactory rpcClientProxyFactory(ZooKeeperServiceDiscovery zooKeeperServiceDiscovery) {
 
         return new RpcClientProxyFactory(zooKeeperServiceDiscovery);
     }
 
     @Bean
-    public ParseReferencePostProcessor parseReferencePostProcessor(RpcClientProxyFactory rpcClientProxyFactory){
+    public ParseReferencePostProcessor parseReferencePostProcessor(RpcClientProxyFactory rpcClientProxyFactory) {
 
         return new ParseReferencePostProcessor(rpcClientProxyFactory);
     }

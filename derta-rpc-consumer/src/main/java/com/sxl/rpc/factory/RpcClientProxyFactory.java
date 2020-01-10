@@ -30,7 +30,7 @@ public class RpcClientProxyFactory {
         return (T) Proxy.newProxyInstance(
                 interfaceClass.getClassLoader(),
                 new Class<?>[]{interfaceClass},
-                new RpcProxyHandler(interfaceClass,serviceVersion,serviceDiscovery));
+                new RpcProxyHandler(interfaceClass, serviceVersion, serviceDiscovery));
     }
 
 

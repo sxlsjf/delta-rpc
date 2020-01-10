@@ -19,7 +19,7 @@ public class RPCUtils {
 
     public static RpcRequest buildRequest(Class<?> interfaceClass, String serviceVersion, Method method, Object[] args) {
 
-        RpcRequest request = buildRequest(interfaceClass,serviceVersion,args);
+        RpcRequest request = buildRequest(interfaceClass, serviceVersion, args);
         request.setMethodName(method.getName());
         request.setParameterTypes(method.getParameterTypes());
 
@@ -27,12 +27,12 @@ public class RPCUtils {
     }
 
 
-    public static String getServiceIP(ServiceDiscovery serviceDiscovery,String serviceName,String serviceVersion){
+    public static String getServiceIP(ServiceDiscovery serviceDiscovery, String serviceName, String serviceVersion) {
         // 获取 RPC 服务地址
-        String serviceAddress="";
+        String serviceAddress = "";
 
-        if(null!=serviceDiscovery){
-            String service=serviceName;
+        if (null != serviceDiscovery) {
+            String service = serviceName;
             if (StringUtil.isNotEmpty(serviceVersion)) {
                 service += "-" + serviceVersion;
             }
@@ -40,11 +40,11 @@ public class RPCUtils {
             log.info("discover service: {} => {}", serviceName, service);
 
         }
-       return serviceAddress;
+        return serviceAddress;
     }
 
 
-    private static RpcRequest buildRequest(Class<?> interfaceClass,  String serviceVersion, Object[] args){
+    private static RpcRequest buildRequest(Class<?> interfaceClass, String serviceVersion, Object[] args) {
 
         RpcRequest request = new RpcRequest();
         request.setRequestId(UUID.randomUUID().toString());

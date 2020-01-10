@@ -13,7 +13,6 @@ import org.sxl.rpc.container.LocalHandlerMap;
 import org.sxl.rpc.utils.InvokeServiceUtil;
 
 
-
 /**
  * @Author: shenxl
  * @Date: 2019/9/30 14:32
@@ -25,18 +24,18 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
 
     private final LocalHandlerMap localHandlerMap;
 
-    public RpcServerHandler(LocalHandlerMap localHandlerMap){
-        this.localHandlerMap= localHandlerMap;
+    public RpcServerHandler(LocalHandlerMap localHandlerMap) {
+        this.localHandlerMap = localHandlerMap;
     }
 
 
     @Override
-    public void channelRead0(final ChannelHandlerContext ctx, RpcRequest request)  {
+    public void channelRead0(final ChannelHandlerContext ctx, RpcRequest request) {
         // 创建并初始化 RPC 响应对象
         RpcResponse response = new RpcResponse();
         response.setRequestId(request.getRequestId());
         try {
-            Object result = InvokeServiceUtil.invoke(request,localHandlerMap);
+            Object result = InvokeServiceUtil.invoke(request, localHandlerMap);
             response.setResult((LightDeferred) result);
             response.setSuccess(true);
         } catch (Exception e) {

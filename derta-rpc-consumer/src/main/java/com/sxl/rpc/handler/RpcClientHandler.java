@@ -22,21 +22,21 @@ public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, RpcResponse rpcResponse) {
 
-        Map<String, Deferred> promiseMap=NettyClient.getInstance().getPromiseMap();
+        Map<String, Deferred> promiseMap = NettyClient.getInstance().getPromiseMap();
 
         String requestId = rpcResponse.getRequestId();
 
         //这个promise才是真正的异步promise
-        Deferred deferred=promiseMap.get(requestId);
+        Deferred deferred = promiseMap.get(requestId);
 
         //从返回的promise中拿到结果，返回的promise是同步的，仅仅是充当包装返回结果的实体
-        Object reallyResult= rpcResponse.getResult().get();
+        Object reallyResult = rpcResponse.getResult().get();
 
-        if (deferred!= null) {
+        if (deferred != null) {
 
-            if(rpcResponse.isSuccess()){
+            if (rpcResponse.isSuccess()) {
                 deferred.resolve(reallyResult);
-            }else {
+            } else {
                 deferred.reject(rpcResponse.getException());
             }
 
@@ -51,7 +51,7 @@ public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)  {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         log.error("api caught exception", cause);
         ctx.close();
     }

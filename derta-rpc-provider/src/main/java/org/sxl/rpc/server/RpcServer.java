@@ -11,6 +11,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.sxl.rpc.container.LocalHandlerMap;
+
 import java.util.Date;
 
 /**
@@ -20,30 +21,30 @@ import java.util.Date;
  * @description：RPC 服务器（用于发布 RPC 服务）
  */
 @Slf4j
-public final class RpcServer extends Thread{
+public final class RpcServer extends Thread {
 
     private Integer port;
 
-    private  LocalHandlerMap localHandlerMap;
+    private LocalHandlerMap localHandlerMap;
 
-    private static final RpcServer instance=new RpcServer();
+    private static final RpcServer instance = new RpcServer();
 
 
-    private RpcServer(){
+    private RpcServer() {
 
     }
 
-    public static RpcServer getSingleInstance(){
+    public static RpcServer getSingleInstance() {
         return instance;
     }
 
-    public RpcServer setPort(Integer port){
-        this.port=port;
+    public RpcServer setPort(Integer port) {
+        this.port = port;
         return this;
     }
 
-    public RpcServer setLocalHandlerMap(LocalHandlerMap localHandlerMap){
-        this.localHandlerMap=localHandlerMap;
+    public RpcServer setLocalHandlerMap(LocalHandlerMap localHandlerMap) {
+        this.localHandlerMap = localHandlerMap;
         return this;
     }
 

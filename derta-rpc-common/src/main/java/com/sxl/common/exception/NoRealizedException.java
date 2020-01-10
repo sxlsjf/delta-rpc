@@ -8,7 +8,7 @@ package com.sxl.common.exception;
  */
 public class NoRealizedException extends RuntimeException {
 
-    public NoRealizedException(){
+    public NoRealizedException() {
 
         super("this method is not implemented");
     }

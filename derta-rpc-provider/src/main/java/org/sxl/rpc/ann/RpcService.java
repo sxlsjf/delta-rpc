@@ -29,7 +29,7 @@ public @interface RpcService {
      */
     String version() default "";
 
-    String group()   default "";
+    String group() default "";
 
     int timeout() default 5000;
 }

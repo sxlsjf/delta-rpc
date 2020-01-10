@@ -1,4 +1,5 @@
 package com.sxl.common.core.bean;
+
 import lombok.Data;
 
 
@@ -35,8 +36,6 @@ public class RpcRequest {
      * 参数
      */
     private Object[] parameters;
-
-
 
 
 }

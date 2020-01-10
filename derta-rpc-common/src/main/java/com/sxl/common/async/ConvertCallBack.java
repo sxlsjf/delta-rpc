@@ -7,7 +7,7 @@ package com.sxl.common.async;
  * @description：${description}
  */
 @FunctionalInterface
-public interface ConvertCallBack<T,R> extends AsyncRpcCallback{
+public interface ConvertCallBack<T, R> extends AsyncRpcCallback {
 
     T map(R r);
 

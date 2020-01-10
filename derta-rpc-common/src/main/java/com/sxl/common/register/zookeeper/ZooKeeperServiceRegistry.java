@@ -25,7 +25,7 @@ public class ZooKeeperServiceRegistry implements ServiceRegistry {
     }
 
 
-    public void register(String serviceName,String serviceAddress) {
+    public void register(String serviceName, String serviceAddress) {
         // 创建 registry 节点（持久）
         String registryPath = Constant.ZK_REGISTRY_PATH;
         if (!zkClient.exists(registryPath)) {

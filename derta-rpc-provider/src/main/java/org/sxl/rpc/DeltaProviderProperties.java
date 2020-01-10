@@ -14,17 +14,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class DeltaProviderProperties {
 
     /**
-     *zk注册地址
+     * zk注册地址
      */
     private String zkAddressRegister;
 
     /**
-     *端口号
+     * 端口号
      */
     private Integer serverPort;
 
     /**
-     *是否开启服务端
+     * 是否开启服务端
      */
     private boolean provider;
 
