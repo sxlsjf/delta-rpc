@@ -29,7 +29,7 @@ public class RpcProxyHandler<T> extends AbstractProxyObject<T> implements Invoca
     public Object invoke(Object proxy, Method method, Object[] args) {
 
         // 创建 RPC 请求对象并设置请求属性
-        RpcRequest request = RPCUtils.BuildRequest(interfaceClass, serviceVersion, method, args);
+        RpcRequest request = RPCUtils.buildRequest(interfaceClass, serviceVersion, method, args);
 
         // 获取 RPC 服务地址
         String ipAddress=RPCUtils.getServiceIP(serviceDiscovery,interfaceClass.getName(),serviceVersion);

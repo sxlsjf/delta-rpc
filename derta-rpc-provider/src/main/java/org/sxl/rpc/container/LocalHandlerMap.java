@@ -1,5 +1,6 @@
 package org.sxl.rpc.container;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import	java.util.concurrent.ConcurrentHashMap;
 
@@ -12,6 +13,7 @@ import java.util.Map;
  * @description：缓存本地服务
  */
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class LocalHandlerMap extends ConcurrentHashMap<String,Object>{
 

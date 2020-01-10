@@ -41,8 +41,8 @@ public class StartServerEventListener implements ApplicationListener<Application
         String  serviceAddress=ip+":"+port;
 
         // 注册 RPC 服务地址
-        Optional.of(zkRegister).ifPresent((t) ->
-                localHandlerMap.keySet().stream().forEach(s -> {
+        Optional.of(zkRegister).ifPresent(t ->
+                localHandlerMap.keySet().forEach(s -> {
                     t.register(s, serviceAddress);
                     log.info("注册：register service: {} => {}", s, serviceAddress);
                 }));

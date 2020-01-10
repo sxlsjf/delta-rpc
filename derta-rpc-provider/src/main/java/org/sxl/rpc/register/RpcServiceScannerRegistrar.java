@@ -10,6 +10,7 @@ import org.springframework.core.type.filter.TypeFilter;
 import org.sxl.rpc.ann.DeltaService;
 import org.sxl.rpc.ann.ServiceScan;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -28,7 +29,7 @@ public class RpcServiceScannerRegistrar implements ImportBeanDefinitionRegistrar
         AnnotationAttributes annoAttrs = AnnotationAttributes
                 .fromMap(annotationMetadata.getAnnotationAttributes(ServiceScan.class.getName()));
 
-        String[] basePackages=annoAttrs.getStringArray("basePackage");
+        String[] basePackages= Objects.requireNonNull(annoAttrs).getStringArray("basePackage");
 
        //是否使用默认的filter，使用默认的filter意味着只扫描那些类上拥有Component、Service、Repository或Controller注解的类。
         ClassPathScanningCandidateComponentProvider beanScanner =

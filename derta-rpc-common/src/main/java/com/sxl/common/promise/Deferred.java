@@ -147,11 +147,7 @@ public class Deferred<R> implements Promise<R> {
         @Override
         protected boolean tryRelease(int arg) {
             if (getState() == pending) {
-                if (compareAndSetState(pending, done)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return compareAndSetState(pending, done);
             } else {
                 return true;
             }

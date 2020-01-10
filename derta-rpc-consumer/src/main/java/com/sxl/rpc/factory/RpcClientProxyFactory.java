@@ -24,8 +24,6 @@ public class RpcClientProxyFactory {
         this.serviceDiscovery = serviceDiscovery;
     }
 
-
-
     @SuppressWarnings("unchecked")
     public <T> T create(final Class<T> interfaceClass, final String serviceVersion) {
         // 创建动态代理对象

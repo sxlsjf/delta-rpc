@@ -38,9 +38,9 @@ public class NettyClient {
 
     //负载均衡获取对应IP 从连接池中获取连接channel
     private Channel connect(String ip) throws Exception {
-        String[] IPArr=ip.split(":");
-        String host=IPArr[0];
-        Integer port=Integer.valueOf(IPArr[1]);
+        String[] ipArr=ip.split(":");
+        String host=ipArr[0];
+        Integer port=Integer.valueOf(ipArr[1]);
         if (connectionPoolMap.get(ip)==null){
             ConnectionPool connectionPool = new ConnectionPool(host, port);
             connectionPoolMap.putIfAbsent(ip, connectionPool);

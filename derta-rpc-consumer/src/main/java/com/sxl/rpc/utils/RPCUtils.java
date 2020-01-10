@@ -17,9 +17,9 @@ import java.util.UUID;
 @Slf4j
 public class RPCUtils {
 
-    public static RpcRequest BuildRequest(Class<?> interfaceClass, String serviceVersion, Method method, Object[] args) {
+    public static RpcRequest buildRequest(Class<?> interfaceClass, String serviceVersion, Method method, Object[] args) {
 
-        RpcRequest request = BuildRequest(interfaceClass,serviceVersion,args);
+        RpcRequest request = buildRequest(interfaceClass,serviceVersion,args);
         request.setMethodName(method.getName());
         request.setParameterTypes(method.getParameterTypes());
 
@@ -44,7 +44,7 @@ public class RPCUtils {
     }
 
 
-    private static RpcRequest BuildRequest(Class<?> interfaceClass,  String serviceVersion, Object[] args){
+    private static RpcRequest buildRequest(Class<?> interfaceClass,  String serviceVersion, Object[] args){
 
         RpcRequest request = new RpcRequest();
         request.setRequestId(UUID.randomUUID().toString());

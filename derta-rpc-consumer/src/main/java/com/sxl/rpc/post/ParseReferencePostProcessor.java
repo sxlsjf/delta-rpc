@@ -41,7 +41,7 @@ public class ParseReferencePostProcessor implements BeanPostProcessor {
 
             RpcReference reference = field.getAnnotation(RpcReference.class);
 
-            Optional.ofNullable(reference).ifPresent((t) -> {
+            Optional.ofNullable(reference).ifPresent(t -> {
 
                 Object objProxy;
                 objProxy = factory.create(field.getType(), reference.version());

@@ -10,14 +10,14 @@ import java.util.Optional;
  * @Version 1.0
  * @description：${description}
  */
-public abstract class AbstractProxyObject<T>{
+abstract class AbstractProxyObject<T>{
 
     protected Class<T> interfaceClass;
     protected String serviceVersion;
     protected ServiceDiscovery serviceDiscovery;
 
 
-    public AbstractProxyObject(final Class<T> interfaceClass, final String serviceVersion, final ServiceDiscovery serviceDiscovery){
+    protected AbstractProxyObject(final Class<T> interfaceClass, final String serviceVersion, final ServiceDiscovery serviceDiscovery){
 
         this.interfaceClass=interfaceClass;
         this.serviceVersion=serviceVersion;
