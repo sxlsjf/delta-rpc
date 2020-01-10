@@ -31,7 +31,7 @@ public class ParseRpcServiceAnn implements BeanPostProcessor {
 
         Optional.ofNullable(localHandlerMap).orElseThrow(NullPointerException::new);
 
-        Optional.ofNullable(rpcService).ifPresent((t) -> {
+        Optional.ofNullable(rpcService).ifPresent(t -> {
 
             String serviceName = t.value().getName();
             String serviceVersion = t.version();

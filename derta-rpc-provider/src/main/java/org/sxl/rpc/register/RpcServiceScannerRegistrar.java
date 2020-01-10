@@ -37,8 +37,8 @@ public class RpcServiceScannerRegistrar implements ImportBeanDefinitionRegistrar
         TypeFilter includeFilter = new AnnotationTypeFilter(DeltaService.class);
         beanScanner.addIncludeFilter(includeFilter);
 
-        Optional.ofNullable(basePackages).ifPresent((x) ->
-                Stream.of(x).forEach((t) -> beanScanner.findCandidateComponents(t).forEach((y -> {
+        Optional.ofNullable(basePackages).ifPresent(x ->
+                Stream.of(x).forEach(t -> beanScanner.findCandidateComponents(t).forEach((y -> {
                     //beanName通常由对应的BeanNameGenerator来生成，比如Spring自带的AnnotationBeanNameGenerator、DefaultBeanNameGenerator等，也可以自己实现。
                     String beanName = y.getBeanClassName();
                     beanDefinitionRegistry.registerBeanDefinition(beanName, y);

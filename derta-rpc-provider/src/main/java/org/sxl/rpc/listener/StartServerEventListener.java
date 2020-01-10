@@ -39,7 +39,7 @@ public class StartServerEventListener implements ApplicationListener<Application
         String serviceAddress = ip + ":" + applicationContext.getBean(DertaProviderProperties.class).getServerPort();
 
         // 注册 RPC 服务地址
-        Optional.of(zkRegister).ifPresent((t) ->
+        Optional.of(zkRegister).ifPresent(t ->
                 localHandlerMap.getHandlers().keySet().stream().forEach(s -> {
                     t.register(s, serviceAddress);
                     log.info("注册：register service: {} => {}", s, serviceAddress);
