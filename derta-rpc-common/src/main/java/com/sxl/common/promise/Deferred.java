@@ -158,7 +158,6 @@ public class Deferred<R> implements Promise<R> {
         }
 
         boolean isDone() {
-            getState();
             return getState() == done;
         }
     }

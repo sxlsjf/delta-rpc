@@ -13,10 +13,10 @@ import java.util.Map;
  */
 
 @Data
-public class LocalHandlerMap {
+public class LocalHandlerMap extends ConcurrentHashMap<String,Object>{
 
     //缓存本地实例
-    private final Map<String, Object> handlers=new ConcurrentHashMap<> (16);
+ //   private final Map<String, Object> handlers=new ConcurrentHashMap<> (16);
 
 }
 
