@@ -9,11 +9,11 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>derta-rpc-provider</module>
-        <module>derta-rpc-consumer</module>
-        <module>derta-rpc-common</module>
+        <module>delta-rpc-provider</module>
+        <module>delta-rpc-consumer</module>
+        <module>delta-rpc-common</module>
         <module>sample-api</module>
-        <module>derta-rpc-autoconfiration</module>
+        <module>delta-rpc-autoConfiguration</module>
         <module>test-provider</module>
         <module>test-consumer</module>
     </modules>
