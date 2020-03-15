@@ -1,6 +1,5 @@
 package com.sxl.rpc.autoconfigration;
 
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @Author: shenxl
@@ -9,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * @description：
  */
 
-@Configuration
+//@Configuration
 public class DertaAutoConfiguration {
 
 
